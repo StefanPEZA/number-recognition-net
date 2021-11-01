@@ -64,7 +64,6 @@ C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\stat
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\staticwebassets\WebAPI.StaticWebAssets.xml
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\scopedcss\bundle\WebAPI.styles.css
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.RazorTargetAssemblyInfo.cache
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.csproj.CopyComplete
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.pdb

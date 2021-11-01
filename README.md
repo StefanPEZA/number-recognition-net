@@ -1,2 +1,3 @@
-# fraud-detection-net
-Fraud detection using the Enron dataset
+# MNIST handwritten digit classification
+
+
