@@ -1,0 +1,16 @@
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\Application.deps.json
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\Application.dll
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\ref\Application.dll
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\Application.pdb
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\Domain.dll
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\bin\Debug\net6.0\Domain.pdb
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.GlobalUsings.g.cs
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.dll
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\ref\Application.dll
+C:\Users\folariu\source\repos\Onion.Sample.INET\Application\obj\Debug\net6.0\Application.pdb

@@ -1,0 +1,16 @@
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.csproj.AssemblyReference.cache
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Persistence.deps.json
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Persistence.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Persistence.pdb
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Application.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Domain.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Application.pdb
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0\Domain.pdb
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.pdb
