@@ -14,3 +14,4 @@ C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\bin\Debug\net5.0
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\ref\Persistence.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.pdb
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\obj\Debug\net5.0\Persistence.csproj.CopyComplete

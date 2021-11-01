@@ -68,3 +68,4 @@ C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebA
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.csproj.CopyComplete

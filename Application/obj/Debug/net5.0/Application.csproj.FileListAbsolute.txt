@@ -12,3 +12,4 @@ C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\bin\Debug\net5.0
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\obj\Debug\net5.0\Application.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\obj\Debug\net5.0\ref\Application.dll
 C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\obj\Debug\net5.0\Application.pdb
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\obj\Debug\net5.0\Application.csproj.CopyComplete

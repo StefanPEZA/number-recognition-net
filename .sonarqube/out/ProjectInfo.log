@@ -1,0 +1,26 @@
+Product projects
+---------------------------------------
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\WebAPI.csproj
+
+
+Test projects
+---------------------------------------
+
+
+Invalid projects
+---------------------------------------
+{none}
+
+
+Skipped projects
+---------------------------------------
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Domain\Domain.csproj
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Application\Application.csproj
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\Persistence\Persistence.csproj
+
+
+Excluded projects
+---------------------------------------
+{none}
+
+
