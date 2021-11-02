@@ -1,6 +1,0 @@
-projectKey=Numberrecognitions
-serverUrl=http://localhost:9000
-serverVersion=8.9.3.48735
-dashboardUrl=http://localhost:9000/dashboard?id=Numberrecognitions
-ceTaskId=AXzdToAxaZ3NJshT4bg4
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXzdToAxaZ3NJshT4bg4

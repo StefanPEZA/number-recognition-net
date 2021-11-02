@@ -1,7 +1,0 @@
-﻿C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\program.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.AssemblyInfo.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\appsettings.Development.json
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\appsettings.json
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\WebAPI\Properties\launchSettings.json
