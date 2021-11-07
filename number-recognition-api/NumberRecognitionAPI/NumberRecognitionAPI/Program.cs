@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NumberRecognitionAPI
 {
-    public static class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
@@ -20,6 +20,7 @@ namespace NumberRecognitionAPI
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureKestrel(opt => opt.Limits.MaxRequestBodySize = null);
                     webBuilder.UseStartup<Startup>();
                 });
     }

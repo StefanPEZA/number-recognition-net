@@ -19,10 +19,10 @@ namespace NumberRecognitionAPI.Controllers
             {
                 return BadRequest(new { status = "ERROR", message = "You didn't sent an image!" });
             }
-            if (file.Length > 100000)
+            if (file.Length > 1_000_000)
             {
                 return BadRequest(new { status = "ERROR",
-                    message = "Image too large, you can upload files up to 100 KB!" });
+                    message = "Image too large, you can upload files up to 1 MB!" });
             }
 
             byte[] image = new byte[file.Length];
