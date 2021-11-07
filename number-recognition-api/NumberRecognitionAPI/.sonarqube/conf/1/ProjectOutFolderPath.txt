@@ -1,0 +1,1 @@
+C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\1
