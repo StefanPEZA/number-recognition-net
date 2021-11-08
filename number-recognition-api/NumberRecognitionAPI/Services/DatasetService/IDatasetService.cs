@@ -7,11 +7,12 @@ namespace Services.DatasetService
 {
     public interface IDatasetService
     {
-        Task<IEnumerable<Dataset>> GetAllTestDatasetAsync();
-        Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync();
+        Task<IEnumerable<Dataset>> GetAllDatasetAsync(int label, int limit = 10);
+        Task<IEnumerable<Dataset>> GetAllTestDatasetAsync(int label, int limit = 10);
+        Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync(int label, int limit = 10);
         Task<Dataset> GetDatasetAsync(Guid id);
-        void InsertIntoDataset(Dataset dataset);
-        void UpdateDataset(Dataset dataset);
-        void DeleteFromDatasetAsync(Guid id);
+        Task InsertIntoDataset(Dataset dataset);
+        Task UpdateDataset(Dataset dataset);
+        Task DeleteFromDatasetAsync(Guid id);
     }
 }
