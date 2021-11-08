@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.EntityMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,15 @@ namespace Repository
 {
     public class ApplicationDbContext: DbContext
     {
-        public ApplicationDbContext(DbContextOptions options): base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new DatasetMap());
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

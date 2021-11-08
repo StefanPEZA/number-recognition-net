@@ -14,14 +14,19 @@ namespace Services.DatasetService
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Dataset>> GetAllTestDatasetAsync()
+        public async Task<IEnumerable<Dataset>> GetAllDatasetAsync(int label, int limit = 10)
         {
-            return await _repository.GetAllAsync(d => d.IsTest);
+            return await _repository.GetAllAsync(limit, d => d.Label == label);
         }
 
-        public async Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync()
+        public async Task<IEnumerable<Dataset>> GetAllTestDatasetAsync(int label, int limit = 10)
         {
-            return await _repository.GetAllAsync(d => !d.IsTest);
+            return await _repository.GetAllAsync(limit, d => d.IsTest && d.Label == label);
+        }
+
+        public async Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync(int label, int limit = 10)
+        {
+            return await _repository.GetAllAsync(limit, d => !d.IsTest && d.Label == label);
         }
 
         public async Task<Dataset> GetDatasetAsync(Guid id)
@@ -29,20 +34,20 @@ namespace Services.DatasetService
             return await _repository.GetByIdAsync(id);
         }
 
-        public void InsertIntoDataset(Dataset dataset)
+        public async Task InsertIntoDataset(Dataset dataset)
         {
-            _repository.InsertAsync(dataset);
+            await _repository.InsertAsync(dataset);
         }
 
-        public void UpdateDataset(Dataset dataset)
+        public async Task UpdateDataset(Dataset dataset)
         {
-            _repository.UpdateAsync(dataset);
+            await _repository.UpdateAsync(dataset);
         }
 
-        public async void DeleteFromDatasetAsync(Guid id)
+        public async Task DeleteFromDatasetAsync(Guid id)
         {
             Dataset dataset = await _repository.GetByIdAsync(id);
-            _repository.DeleteAsync(dataset);
+            await _repository.DeleteAsync(dataset);
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Repository.Repository
             entities = _applicationDbContext.Set<T>();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(Func<T, bool> filter = null)
+        public async Task<IEnumerable<T>> GetAllAsync(int limit = 10, Func<T, bool> filter = null)
         {
             if (filter == null)
             {
                 filter = x => true;
             }
-            return await Task.Run(entities.Where<T>(filter).ToList);
+            return await Task.Run(entities.Where<T>(filter).Take<T>(limit).ToList);
         }
 
         public async Task<T> GetByIdAsync(Guid id)
@@ -32,7 +32,7 @@ namespace Repository.Repository
             return await entities.SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async void InsertAsync(T entity)
+        public async Task InsertAsync(T entity)
         {
             if (entity == null)
             {
@@ -42,7 +42,7 @@ namespace Repository.Repository
             await _applicationDbContext.SaveChangesAsync();
         }
 
-        public async void UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
             if (entity == null)
             {
@@ -52,7 +52,7 @@ namespace Repository.Repository
             await _applicationDbContext.SaveChangesAsync();
         }
 
-        public async void DeleteAsync(T entity)
+        public async Task DeleteAsync(T entity)
         {
             if (entity == null)
             {

@@ -7,10 +7,10 @@ namespace Repository.Repository
 {
     public interface IRepository<T> where T:BaseEntity
     {
-        Task<IEnumerable<T>> GetAllAsync(Func<T, bool> filter = null);
+        Task<IEnumerable<T>> GetAllAsync(int limit = 10, Func<T, bool> filter = null);
         Task<T> GetByIdAsync(Guid id);
-        void InsertAsync(T entity);
-        void UpdateAsync(T entity);
-        void DeleteAsync(T entity);
+        Task InsertAsync(T entity);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
     }
 }
