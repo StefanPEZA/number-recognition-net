@@ -11,7 +11,128 @@
         "language": "en-US"
       },
       "results": [
-      ]
+        {
+          "ruleId": "S4457",
+          "level": "warning",
+          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 27,
+                  "endLine": 35,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 23,
+                  "endLine": 39,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4457",
+          "level": "warning",
+          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 27,
+                  "endLine": 45,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 23,
+                  "endLine": 49,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4457",
+          "level": "warning",
+          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 27,
+                  "endLine": 55,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 23,
+                  "endLine": 59,
+                  "endColumn": 64
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S4457": {
+          "id": "S4457",
+          "shortDescription": "Parameter validation in \"async\"/\"await\" methods should be wrapped",
+          "fullDescription": "Because of the way async/await methods are rewritten by the compiler, any exceptions thrown during the parameters check will happen only when the task is observed. That could happen far away from the source of the buggy code or never happen for fire-and-forget tasks.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4457",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        }
+      }
     }
   ]
 }
