@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="header-title" style="text-align: center;">
+                <h1 style="margin-top: 30px; margin-bottom: 50px;">Draw a number</h1>
+            </div>
+            <canvas id="canvas" style="border: 1px solid black; width: 100%"></canvas>
+        </div>
+        <div class="col-md-4" style="padding-bottom: 15px; margin-top: 120px;">
+            <p class="text-center">Processed image here:</p>
+            <canvas style="border: 1px solid black; width: 100%"></canvas>
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="predict">Predicted number: </label>
+                <input type="text" value=" " id="predict" style="margin-left: 15px;" />
+            </div>
+            <button id="predict-button" class="btn btn-primary" style="width: 100%; margin-top: 35px;">Predict</button>
+            <input type="file" id="imageLoader" name="imageLoader" style="display:none;"/>
+        </div>
+    </div>
+
+</div>
