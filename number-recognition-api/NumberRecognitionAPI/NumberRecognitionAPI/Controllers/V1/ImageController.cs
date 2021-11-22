@@ -1,14 +1,24 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Services.ImageService;
 
 namespace NumberRecognitionAPI.Controllers.V1
-{
+{            
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/image")]
     [ApiController]
     public class ImageController : ControllerBase
     {
+                                           
+        private readonly IImageService _imageService;
+
+        public ImageController(IImageService imageService)
+        {
+            _imageService = imageService;
+        }
+
+
         [HttpPost]
         [Route("predict")]
         public async Task<IActionResult> PredictImage(IFormFile file)
@@ -35,6 +45,9 @@ namespace NumberRecognitionAPI.Controllers.V1
 
             byte[] image = new byte[file.Length];
             await file.OpenReadStream().ReadAsync(image, 0, (int)file.Length);
+
+           await _imageService.encode(image);
+  
 
             response = new
             {
