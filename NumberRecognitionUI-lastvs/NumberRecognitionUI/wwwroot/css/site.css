@@ -77,3 +77,9 @@ body {
     border: none;
     outline: none !important;
 }
+
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block
+}

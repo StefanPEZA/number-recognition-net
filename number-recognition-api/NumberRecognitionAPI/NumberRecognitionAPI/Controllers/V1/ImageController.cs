@@ -21,10 +21,10 @@ namespace NumberRecognitionAPI.Controllers.V1
 
         [HttpPost]
         [Route("predict")]
-        public async Task<IActionResult> PredictImage(IFormFile file)
+        public async Task<IActionResult> PredictImage(IFormFile image)
         {
             object response;
-            if (file == null || !file.ContentType.Contains("image"))
+            if (image == null || !image.ContentType.Contains("image"))
             {
                 response = new
                 {
@@ -33,7 +33,7 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
-            if (file.Length > 512_000)
+            if (image.Length > 512_000)
             {
                 response = new
                 {
@@ -43,18 +43,18 @@ namespace NumberRecognitionAPI.Controllers.V1
                 return BadRequest(response);
             }
 
-            byte[] image = new byte[file.Length];
-            await file.OpenReadStream().ReadAsync(image, 0, (int)file.Length);
+            byte[] image_bytes = new byte[image.Length];
+            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
-           await _imageService.encode(image);
+            await _imageService.encode(image_bytes);
   
 
             response = new
             {
                 status = "OK",
-                image_length = file.Length,
-                file_name = file.FileName,
-                file_type = file.ContentType,
+                image_length = image.Length,
+                file_name = image.FileName,
+                file_type = image.ContentType,
                 predicted_label = "not yet implemented"
             };
             return Ok(response);
