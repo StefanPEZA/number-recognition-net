@@ -5,6 +5,7 @@ namespace Services.ImageService
 {
     public interface IImageService
     {
-        Task<int[,]> EncodeAsync(byte[] source);
+        Task<byte[,]> EncodeAsync(byte[] source);
+        string GetMatrixString();
     }
 }

@@ -5,9 +5,19 @@ namespace Services.ImageService
 {
     public class ImageService : IImageService
     {
-        public async Task<int[,]> EncodeAsync(byte[] source)
+        ImageProcessor imageProcessor;
+        public ImageService()
         {
-            return await new ImageProcessor().Encode(source);
+            imageProcessor = new ImageProcessor();
+        }
+        public async Task<byte[,]> EncodeAsync(byte[] source)
+        {
+            return await imageProcessor.Encode(source);
+        }
+
+        public string GetMatrixString()
+        {
+            return imageProcessor.ToString();
         }
     }
 }

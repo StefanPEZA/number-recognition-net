@@ -46,8 +46,7 @@ namespace NumberRecognitionAPI.Controllers.V1
             byte[] image_bytes = new byte[image.Length];
             await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
-            int[,] processed_image = await _imageService.EncodeAsync(image_bytes);
-  
+            byte[,] processed_image = await _imageService.EncodeAsync(image_bytes);
 
             response = new
             {
@@ -56,7 +55,7 @@ namespace NumberRecognitionAPI.Controllers.V1
                 file_name = image.FileName,
                 file_type = image.ContentType,
                 predicted_label = "not yet implemented",
-                processed_image = processed_image
+                processed_image = _imageService.GetMatrixString()
             };
             return Ok(response);
         }
