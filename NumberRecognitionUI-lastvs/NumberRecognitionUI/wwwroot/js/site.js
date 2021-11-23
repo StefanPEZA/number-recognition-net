@@ -72,27 +72,32 @@ window.addEventListener("load", () => {
             var img = new Image();
             img.onload = function () {
                 let size = calculateAspectRatioFit(img.width, img.height)
-                context.drawImage(img, 0, 0);
+                context.drawImage(img, 0, 0, size.width, size.height);
             }
             img.src = event.target.result;
         }
         reader.readAsDataURL(e.target.files[0]);
     }
 
-    /*$('#predict-button').click(function () {
-
-        var id = 5;
+    $('#predict-button').on('click', function () {
+        let dataForm = new FormData($('#form-upload')[0])
         $.ajax({
+            // Your server url to process the upload
+            url: 'https://localhost:5001/api/v1/image/predict',
+            type: 'POST',
 
-            method: "POST",
-            url: '/Index/send',
-            data: { id: id },
-            success: function (a) {
-                // Replace the div's content with the page method's return.
-                alert("success");
+            // Form data
+            data: dataForm,
 
-            },
-
+            cache: false,
+            contentType: false,
+            processData: false,
+        }).done(function (response) {
+            alert(JSON.stringify(response))
+            console.log(response);
+        }).fail(function (error) {
+            alert(JSON.stringify(error.responseJSON))
+            console.log(error.responseJSON);
         });
-    });*/
+    });
 });

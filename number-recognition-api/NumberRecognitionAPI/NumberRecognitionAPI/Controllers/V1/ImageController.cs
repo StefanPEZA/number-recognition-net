@@ -48,8 +48,6 @@ namespace NumberRecognitionAPI.Controllers.V1
             await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
             byte[,] processed_image = await _imageService.EncodeAsync(image_bytes);
-            byte[] array1D = new byte[processed_image.Length];
-            Buffer.BlockCopy(processed_image, 0, array1D, 0, array1D.Length * sizeof(byte));
 
             response = new
             {

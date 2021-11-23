@@ -21,7 +21,7 @@ namespace Services.ImageService
 
         private Task<byte[,]> GetPixelMatrixFromBitmap()
         {
-            byte[,] result = new byte[image.Width, image.Height];
+            byte[,] result = new byte[image.Width,image.Height];
             StringBuilder lines = new StringBuilder();
             for (int i = 0; i < image.Width; i++)
             {
@@ -32,7 +32,7 @@ namespace Services.ImageService
                     if (pixel.R == 0 || pixel.G == 0 || pixel.B == 0)
                     {
                         result[i, j] = pixel.A;
-                        lines.Append(pixel.A);
+                        lines.Append(pixel.A.ToString() + ",");
                     }
                     else
                     {
@@ -41,7 +41,7 @@ namespace Services.ImageService
                     }
 
                 }
-                lines.Append("]\n");
+                lines.Append("],\n");
             }
             imageMatrix = lines.ToString();
             File.WriteAllLines("temp.txt", imageMatrix.Split("\n"));

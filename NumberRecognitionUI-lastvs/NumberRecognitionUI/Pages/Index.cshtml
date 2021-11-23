@@ -23,10 +23,11 @@
                 <label for="predict">Predicted number: </label>
                 <input type="text" value=" " id="predict" style="margin-left: 15px;" />
             </div>
-            <form method="post" action="https://localhost:5001/api/v1/image/predict" enctype="multipart/form-data">
-                <input type="file" id="imageLoader" name="imageLoader" style="display:none;"/>
-                <button type="submit" id="predict-button" class="btn btn-primary" style="width: 100%; margin-top: 35px;">Predict</button>
+            <form id="form-upload" enctype="multipart/form-data">
+                <input type="file" id="imageLoader" name="image" style="display:none;" aria-label="uploaded image"/>
             </form>
+            <button id="predict-button" class="btn btn-primary" style="width: 100%; margin-top: 35px;">Predict</button>
+            
         </div>
     </div>
 

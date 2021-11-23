@@ -24,6 +24,14 @@ namespace NumberRecognitionAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "cors",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*");
+                                  });
+            });
             services.AddControllers();
             services.AddApiVersioning(options =>
             {
@@ -50,6 +58,8 @@ namespace NumberRecognitionAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NumberRecognitionAPI v1"));
             }
+
+            app.UseCors("cors");
 
             app.UseHttpsRedirection();
 
