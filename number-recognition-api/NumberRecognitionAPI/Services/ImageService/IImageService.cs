@@ -5,6 +5,6 @@ namespace Services.ImageService
 {
     public interface IImageService
     {
-        Task encode(byte[] source);
+        Task<int[,]> EncodeAsync(byte[] source);
     }
 }

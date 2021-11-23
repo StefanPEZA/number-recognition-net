@@ -5,13 +5,95 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "3.11.0.0",
-        "fileVersion": "3.11.0-4.21451.6 (0b1a27fd)",
-        "semanticVersion": "3.11.0",
+        "version": "4.0.0.0",
+        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
+        "semanticVersion": "4.0.0",
         "language": "en-US"
       },
       "results": [
-      ]
+        {
+          "ruleId": "S3928",
+          "level": "warning",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 44,
+                  "endLine": 35,
+                  "endColumn": 85
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3928",
+          "level": "warning",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 44,
+                  "endLine": 45,
+                  "endColumn": 85
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3928",
+          "level": "warning",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 44,
+                  "endLine": 55,
+                  "endColumn": 85
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S3928": {
+          "id": "S3928",
+          "shortDescription": "Parameter names used into ArgumentException constructors should match an existing one ",
+          "fullDescription": "Some constructors of the ArgumentException, ArgumentNullException, ArgumentOutOfRangeException and DuplicateWaitObjectException classes must be fed with a valid parameter name. This rule raises an issue in two cases:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3928",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        }
+      }
     }
   ]
 }

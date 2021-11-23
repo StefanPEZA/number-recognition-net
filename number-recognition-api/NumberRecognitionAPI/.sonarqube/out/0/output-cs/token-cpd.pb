@@ -1,5 +1,161 @@
-Ô
-{C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
+ï
+nD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
+	namespace
+
+ 	
+Domain
+
+
+ 
+.
+
+ 
+EntityMapper
+
+ 
+{ 
+public 
+
+class 
+
+DatasetMap 
+: $
+IEntityTypeConfiguration 6
+<6 7
+Dataset7 >
+>> ?
+{ 
+public 
+void 
+	Configure 
+( 
+EntityTypeBuilder /
+</ 0
+Dataset0 7
+>7 8
+builder9 @
+)@ A
+{ 	
+builder 
+. 
+HasKey 
+( 
+x 
+=> 
+x  !
+.! "
+Id" $
+)$ %
+.% &
+HasName& -
+(- .
+$str. <
+)< =
+;= >
+builder 
+. 
+Property 
+( 
+x 
+=> !
+x" #
+.# $
+Id$ &
+)& '
+.' (
+ValueGeneratedOnAdd( ;
+(; <
+)< =
+. 
+HasColumnName 
+( 
+$str #
+)# $
+. 
+HasColumnType 
+( 
+$str 1
+)1 2
+;2 3
+builder 
+. 
+Property 
+( 
+x 
+=> !
+x" #
+.# $
+Label$ )
+)) *
+.* +
+ValueGeneratedOnAdd+ >
+(> ?
+)? @
+. 
+HasColumnName 
+( 
+$str &
+)& '
+. 
+HasColumnType 
+( 
+$str $
+)$ %
+;% &
+builder 
+. 
+Property 
+( 
+x 
+=> !
+x" #
+.# $
+ImageMatrix$ /
+)/ 0
+.0 1
+ValueGeneratedOnAdd1 D
+(D E
+)E F
+. 
+HasColumnName 
+( 
+$str &
+)& '
+. 
+HasColumnType 
+( 
+$str %
+)% &
+;& '
+builder 
+. 
+Property 
+( 
+x 
+=> !
+x" #
+.# $
+IsTest$ *
+)* +
+.+ ,
+ValueGeneratedOnAdd, ?
+(? @
+)@ A
+. 
+HasColumnName 
+( 
+$str (
+)( )
+. 
+HasColumnType 
+( 
+$str $
+)$ %
+;% &
+} 	
+} 
+} Á
+hD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
 	namespace 	
 Domain
  
@@ -22,8 +178,8 @@ BaseEntity 
 ;! "
 }# $
 } 
-}		 Í
-xC:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
+}		 ·
+eD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
 	namespace 	
 Domain
  
@@ -38,15 +194,15 @@ xC:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\Numb
 
 BaseEntity %
 { 
-public 
-string 
-Label 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
+public 
+int 
+Label 
+{ 
+get 
+; 
+set  #
+;# $
+}% &
 public 
 byte 
 [ 

@@ -20,10 +20,6 @@ namespace Repository.Repository
 
         public async Task<IEnumerable<T>> GetAllAsync(int limit = 10, Func<T, bool> filter = null)
         {
-            if (filter == null)
-            {
-                filter = x => true;
-            }
             return await Task.Run(entities.Where<T>(filter).Take<T>(limit).ToList);
         }
 
@@ -36,7 +32,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                throw new ArgumentNullException(nameof(entity));
+                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
             }
             entities.Add(entity);
             await _applicationDbContext.SaveChangesAsync();
@@ -46,7 +42,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                throw new ArgumentNullException(nameof(entity));
+                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
             }
             entities.Update(entity);
             await _applicationDbContext.SaveChangesAsync();
@@ -56,7 +52,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                throw new ArgumentNullException(nameof(entity));
+                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
             }
             entities.Remove(entity);
             await _applicationDbContext.SaveChangesAsync();

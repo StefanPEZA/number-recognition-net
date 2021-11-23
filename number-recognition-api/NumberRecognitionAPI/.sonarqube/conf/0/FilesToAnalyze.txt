@@ -1,2 +1,3 @@
-﻿C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
+﻿D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs

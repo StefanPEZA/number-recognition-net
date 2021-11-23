@@ -1,22 +1,29 @@
 ﻿using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.ImageService
 {
     class ImageProcessor
     {
-         async public Task encode(byte[] source)
+        private Bitmap image;
+        public async Task<int[,]> Encode(byte[] source)
         {
-
             MemoryStream ms = new MemoryStream(source);
-            Bitmap image = new Bitmap(ms);
-            using (FileStream fs = File.Create("temp.txt")) ;
-            int[,] result = new int[ image.Width,image.Height];
+            image = new Bitmap(ms);
+            int[,] result = await Task.Run(GetPixelMatrixFromBitmap);
+            
+            return result;
+        }
 
-            string[] lines = new string[image.Width];
+        private Task<int[,]> GetPixelMatrixFromBitmap()
+        {
+            int[,] result = new int[image.Width, image.Height];
+            StringBuilder lines = new StringBuilder();
             for (int i = 0; i < image.Width; i++)
             {
+                lines.Append("[");
                 string line = "[";
                 for (int j = 0; j < image.Height; j++)
                 {
@@ -24,19 +31,20 @@ namespace Services.ImageService
                     if (pixel.R == 0 || pixel.G == 0 || pixel.B == 0)
                     {
                         result[i, j] = pixel.A % 1000;
-                        line = line + pixel.A%1000;
+                        line = line + pixel.A % 1000;
+                        lines.Append(pixel.A % 1000);
                     }
                     else
                     {
                         result[i, j] = 0;
-                        line = line + "0, ";
+                        lines.Append("0, ");
                     }
- 
+
                 }
-                line += "]";
-                lines[i] = line;
+                lines.Append("]\n");
             }
-            File.WriteAllLines("temp.txt", lines);
+            File.WriteAllLines("temp.txt", lines.ToString().Split("\n"));
+            return Task.FromResult(result);
         }
     }
 }
