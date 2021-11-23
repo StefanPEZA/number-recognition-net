@@ -10,6 +10,7 @@ namespace Services.ImageService
         {
             imageProcessor = new ImageProcessor();
         }
+
         public async Task<byte[,]> EncodeAsync(byte[] source)
         {
             return await imageProcessor.Encode(source);

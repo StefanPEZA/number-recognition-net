@@ -8,4 +8,6 @@ D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Num
 D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\appsettings.Development.json
 D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\appsettings.json
 D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\num_recog.db
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\temp.txt
 D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Properties\launchSettings.json
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.editorconfig

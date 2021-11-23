@@ -433,7 +433,7 @@ BadRequestUU !
 ;WW 
 }XX 	
 }YY 
-}ZZ þ 
+}ZZ Ç!
 ƒD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.cs
 	namespace 	 
 NumberRecognitionAPI
@@ -616,65 +616,69 @@ BadRequest++ !
 .//M N
 Length//N T
 )//T U
-;//U V
-int11 
-[11 
-,11 
-]11 
-processed_image11 "
-=11# $
-await11% *
-_imageService11+ 8
-.118 9
-EncodeAsync119 D
-(11D E
-image_bytes11E P
-)11P Q
-;11Q R
-response44 
-=44 
-new44 
-{55 
-status66 
-=66 
-$str66 
-,66 
-image_length77 
-=77 
-image77 $
-.77$ %
-Length77% +
-,77+ ,
-	file_name88 
+;//U V
+byte11 
+[11 
+,11 
+]11 
+processed_image11 #
+=11$ %
+await11& +
+_imageService11, 9
+.119 :
+EncodeAsync11: E
+(11E F
+image_bytes11F Q
+)11Q R
+;11R S
+response33 
+=33 
+new33 
+{44 
+status55 
+=55 
+$str55 
+,55 
+image_length66 
+=66 
+image66 $
+.66$ %
+Length66% +
+,66+ ,
+	file_name77 
+=77 
+image77 !
+.77! "
+FileName77" *
+,77* +
+	file_type88 
 =88 
 image88 !
-.88! "
-FileName88" *
-,88* +
-	file_type99 
-=99 
-image99 !
-.99! "
-ContentType99" -
-,99- .
-predicted_label:: 
-=::  !
-$str::" 7
-,::7 8
-processed_image;; 
-=;;  !
-processed_image;;" 1
-}<< 
-;<< 
-return== 
-Ok== 
-(== 
-response== 
-)== 
-;==  
-}>> 	
-}@@ 
-}AA å
+.88! "
+ContentType88" -
+,88- .
+predicted_label99 
+=99  !
+$str99" 7
+,997 8
+processed_image:: 
+=::  !
+_imageService::" /
+.::/ 0
+GetMatrixString::0 ?
+(::? @
+)::@ A
+};; 
+;;; 
+return<< 
+Ok<< 
+(<< 
+response<< 
+)<< 
+;<<  
+}== 	
+}?? 
+}@@ å
 lD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.cs
 	namespace
 
