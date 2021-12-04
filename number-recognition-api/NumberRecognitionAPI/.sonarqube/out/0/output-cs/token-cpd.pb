@@ -1,5 +1,5 @@
-É
-ÅC:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
+Ô
+nD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
 	namespace
 
  	
@@ -154,8 +154,8 @@ DatasetMap 
 ;% &
 } 	
 } 
-} ‘
-{C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
+} ¡
+hD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
 	namespace 	
 Domain
  
@@ -178,8 +178,8 @@ BaseEntity 
 ;! "
 }# $
 } 
-}		  
-xC:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
+}		 ∑
+eD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
 	namespace 	
 Domain
  

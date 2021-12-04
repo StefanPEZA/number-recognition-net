@@ -5,9 +5,9 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "3.11.0.0",
-        "fileVersion": "3.11.0-4.21451.6 (0b1a27fd)",
-        "semanticVersion": "3.11.0",
+        "version": "4.0.0.0",
+        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
+        "semanticVersion": "4.0.0",
         "language": "en-US"
       },
       "results": [
@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Program.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Program.cs",
                 "region": {
                   "startLine": 12,
                   "startColumn": 18,
@@ -39,12 +39,33 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
                 "region": {
-                  "startLine": 37,
+                  "startLine": 47,
                   "startColumn": 19,
-                  "endLine": 37,
-                  "endColumn": 78
+                  "endLine": 47,
+                  "endColumn": 86
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'processed_image'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 21,
+                  "endLine": 49,
+                  "endColumn": 36
                 }
               }
             }
@@ -78,6 +99,23 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1118",
           "properties": {
             "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
+            ]
+          }
+        },
+        "S1481": {
+          "id": "S1481",
+          "shortDescription": "Unused local variables should be removed",
+          "fullDescription": "If a local variable is declared but not used, it is dead code and should be removed. Doing so will improve maintainability because developers will not wonder what the variable is used for.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1481",
+          "properties": {
+            "category": "Minor Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",

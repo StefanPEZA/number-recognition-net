@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Repository;
 using Repository.Repository;
 using Services.DatasetService;
+using Services.ImageService;
 
 namespace NumberRecognitionAPI
 {
@@ -23,6 +24,14 @@ namespace NumberRecognitionAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "cors",
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*");
+                                  });
+            });
             services.AddControllers();
             services.AddApiVersioning(options =>
             {
@@ -37,6 +46,7 @@ namespace NumberRecognitionAPI
             services.AddDbContext<ApplicationDbContext>(item => item.UseSqlite(Configuration.GetConnectionString("sqliteconn")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IDatasetService, DatasetService>();
+            services.AddTransient<IImageService, ImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +58,8 @@ namespace NumberRecognitionAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NumberRecognitionAPI v1"));
             }
+
+            app.UseCors("cors");
 
             app.UseHttpsRedirection();
 

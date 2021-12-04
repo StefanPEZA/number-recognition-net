@@ -1,6 +1,6 @@
-﻿C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211108091052_CreateDatasetTable.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211108091052_CreateDatasetTable.Designer.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\ApplicationDbContextModelSnapshot.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
-C:\Users\stefa\Documents\GitHub\fraud-detection-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
+﻿D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211108091052_CreateDatasetTable.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211108091052_CreateDatasetTable.Designer.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\ApplicationDbContextModelSnapshot.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
+D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs

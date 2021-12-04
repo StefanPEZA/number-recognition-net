@@ -5,38 +5,25 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "3.11.0.0",
-        "fileVersion": "3.11.0-4.21451.6 (0b1a27fd)",
-        "semanticVersion": "3.11.0",
+        "version": "4.0.0.0",
+        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
+        "semanticVersion": "4.0.0",
         "language": "en-US"
       },
       "results": [
         {
-          "ruleId": "S4457",
+          "ruleId": "S3928",
           "level": "warning",
-          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 35,
-                  "startColumn": 27,
+                  "startColumn": 44,
                   "endLine": 35,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
-                "region": {
-                  "startLine": 39,
-                  "startColumn": 23,
-                  "endLine": 39,
-                  "endColumn": 64
+                  "endColumn": 85
                 }
               }
             }
@@ -46,31 +33,18 @@
           }
         },
         {
-          "ruleId": "S4457",
+          "ruleId": "S3928",
           "level": "warning",
-          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 45,
-                  "startColumn": 27,
+                  "startColumn": 44,
                   "endLine": 45,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
-                "region": {
-                  "startLine": 49,
-                  "startColumn": 23,
-                  "endLine": 49,
-                  "endColumn": 64
+                  "endColumn": 85
                 }
               }
             }
@@ -80,31 +54,18 @@
           }
         },
         {
-          "ruleId": "S4457",
+          "ruleId": "S3928",
           "level": "warning",
-          "message": "Split this method into two, one handling parameters check and the other handling the asynchronous code.",
+          "message": "The parameter name 'entity' is not declared in the argument list.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 55,
-                  "startColumn": 27,
+                  "startColumn": 44,
                   "endLine": 55,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/stefa/Documents/GitHub/fraud-detection-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
-                "region": {
-                  "startLine": 59,
-                  "startColumn": 23,
-                  "endLine": 59,
-                  "endColumn": 64
+                  "endColumn": 85
                 }
               }
             }
@@ -115,12 +76,12 @@
         }
       ],
       "rules": {
-        "S4457": {
-          "id": "S4457",
-          "shortDescription": "Parameter validation in \"async\"/\"await\" methods should be wrapped",
-          "fullDescription": "Because of the way async/await methods are rewritten by the compiler, any exceptions thrown during the parameters check will happen only when the task is observed. That could happen far away from the source of the buggy code or never happen for fire-and-forget tasks.",
+        "S3928": {
+          "id": "S3928",
+          "shortDescription": "Parameter names used into ArgumentException constructors should match an existing one ",
+          "fullDescription": "Some constructors of the ArgumentException, ArgumentNullException, ArgumentOutOfRangeException and DuplicateWaitObjectException classes must be fed with a valid parameter name. This rule raises an issue in two cases:",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4457",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3928",
           "properties": {
             "category": "Major Code Smell",
             "isEnabledByDefault": true,
