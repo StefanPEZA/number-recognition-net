@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
@@ -46,8 +47,6 @@ namespace Services.ImageService
             File.WriteAllLines("temp.txt", imageMatrix.Split("\n"));
             return Task.FromResult(result);
         }
-
-        
 
         public async Task<byte[]> Resize(int width, int height)
         {
@@ -129,6 +128,59 @@ namespace Services.ImageService
             return stream.ToArray();
         }
 
+
+        public async Task<List<byte[]>> Split()
+        {
+            List<byte[]> result = new List<byte[]>();
+            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromBitmap);
+            int lastNotBank = -1;
+            List<int> splitList = new List<int>();
+
+            for (int j = 0; j < image.Width; j++)
+            {
+                bool isLineWhite = true;
+                for (int i = 0; i < image.Height; i++)
+                    if(imageMatrix[i,j] == 255)
+                    {
+                        isLineWhite = false;
+                        lastNotBank = 1;
+                    }
+                if(isLineWhite && lastNotBank != -1)
+                {
+                    splitList.Add(j);
+                    lastNotBank = -1;
+                }
+            }
+
+            int lastSplit = 0;
+            //splitList.Remove(splitList[splitList.Count - 1]);
+
+            foreach(int k in splitList){
+                Bitmap temp = new Bitmap(k - lastSplit, image.Height);
+                for (int j = 0;j<image.Height;j++)
+                    for (int i = lastSplit; i < k; i++)
+                    {
+                        if (imageMatrix[j, i] == 0)
+                        {
+                            temp.SetPixel(i-lastSplit, j, Color.FromArgb(255, 255, 255));
+                        }
+                        else
+                        {
+                            temp.SetPixel(i-lastSplit, j, Color.FromArgb(imageMatrix[j, i], 0, 0, 0));
+                        }
+                    }
+                lastSplit = k;
+                temp.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k + ".png", ImageFormat.Png);
+                var stream = new MemoryStream();
+                temp.Save(stream, ImageFormat.Png);
+                result.Add(stream.ToArray());
+
+            }
+
+
+
+            return result;
+        }
 
 
         public override string ToString()

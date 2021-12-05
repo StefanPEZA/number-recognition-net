@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Services.ImageService;
-using System;
+using System.Collections.Generic;
 
 namespace NumberRecognitionAPI.Controllers.V1
 {            
@@ -20,7 +20,7 @@ namespace NumberRecognitionAPI.Controllers.V1
         }
 
 
-        /*[HttpPost]
+        [HttpPost]
         [Route("predict")]
         public async Task<IActionResult> PredictImage(IFormFile image)
         {
@@ -47,7 +47,7 @@ namespace NumberRecognitionAPI.Controllers.V1
             byte[] image_bytes = new byte[image.Length];
             await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
-            byte[,] processed_image = await _imageService.EncodeAsync(image_bytes);
+            byte[] processed_image = await _imageService.Crop(image_bytes);
 
             response = new
             {
@@ -56,10 +56,9 @@ namespace NumberRecognitionAPI.Controllers.V1
                 file_name = image.FileName,
                 file_type = image.ContentType,
                 predicted_label = "not yet implemented",
-                processed_image = _imageService.GetMatrixString()
             };
             return Ok(response);
-        }*/
+        }
 
         [HttpPost]
         [Route("resize")]
@@ -99,7 +98,7 @@ namespace NumberRecognitionAPI.Controllers.V1
 
         [HttpPost]
         [Route("crop")]
-        public async Task<IActionResult> CenterImage(IFormFile image)
+        public async Task<IActionResult> CropImage(IFormFile image)
         {
             object response;
             if (image == null || !image.ContentType.Contains("image"))
@@ -129,6 +128,42 @@ namespace NumberRecognitionAPI.Controllers.V1
             {
                 status = "OK",
                 processed_image = processed_image
+            };
+            return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("split")]
+        public async Task<IActionResult> SplitImage(IFormFile image)
+        {
+            object response;
+            if (image == null || !image.ContentType.Contains("image"))
+            {
+                response = new
+                {
+                    status = "ERROR",
+                    message = "You didn't sent an image!"
+                };
+                return BadRequest(response);
+            }
+            if (image.Length > 512_000)
+            {
+                response = new
+                {
+                    status = "ERROR",
+                    message = "Image too large, you can upload files up to 500 KB!"
+                };
+                return BadRequest(response);
+            }
+
+            byte[] image_bytes = new byte[image.Length];
+            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            List<byte[]> processed_image = await _imageService.Split(image_bytes);
+
+            response = new
+            {
+                status = "OK",
+                processed_image = processed_image.ToArray()
             };
             return Ok(response);
         }
