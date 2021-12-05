@@ -63,7 +63,7 @@ namespace NumberRecognitionAPI.Controllers.V1
 
         [HttpPost]
         [Route("resize")]
-        public async Task<IActionResult> ResizeImage(IFormFile image,int width,int height)
+        public async Task<IActionResult> ResizeImage(IFormFile image, int width, int height)
         {
             object response;
             if (image == null || !image.ContentType.Contains("image"))
