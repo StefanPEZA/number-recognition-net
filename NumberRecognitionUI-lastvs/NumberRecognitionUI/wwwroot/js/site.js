@@ -8,6 +8,7 @@ window.addEventListener("load", () => {
 
     const canvas = document.querySelector("#canvas");
     const predicted_canvas = document.querySelector("#predicted-canvas");
+    const context_predicted = predicted_canvas.getContext("2d");
     const context = canvas.getContext("2d");
     const start_background_color = "white";
     var imageLoader = document.getElementById('imageLoader');
@@ -94,29 +95,55 @@ window.addEventListener("load", () => {
         return new Blob([arrayBuffer], { type: mimeString });
     }
 
-
+    // fac intai ajax la crop, transform sirul de bytes primit in imagine pe care dupa o trimit cropata la resize
+        
     $('#predict-button').on('click', function () {
 
         var imgInfo = canvas.toDataURL("image/png");
-        console.log(imgInfo);
         var blobImage = dataURItoBlob(imgInfo);
         var dataForm = new FormData();
         dataForm.append("image", blobImage)
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/predict',
+            url: 'https://localhost:5001/api/v1/image/crop',
             data: dataForm,
             processData: false,
             contentType: false,
             type: "POST",
+
         }).done(function (response) {
-            alert(JSON.stringify(response))
-            console.log(response);
+
+
+            var url = "data:image/png;base64," + response.processed_image;
+            var blobImageSecond = dataURItoBlob(url);
+
+
+            var dataForm = new FormData();
+            dataForm.append("image", blobImageSecond);
+
+            $.ajax({
+
+                url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
+                type: "POST",
+                data: dataForm,
+                processData: false,
+                contentType: false,
+
+            }).done(function (response) {
+
+                document.getElementById("ItemPreview").src = "data:image/png;base64," + response.processed_image;
+
+                }).fail(function (error) {
+                    alert("not ok");
+                });
+
         }).fail(function (error) {
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
-        });
 
+     
+        });
+    });
 
 
         /*let dataForm = new FormData($('#form-upload')[0])
@@ -139,4 +166,3 @@ window.addEventListener("load", () => {
             console.log(error.responseJSON);
         });*/
     });
-});
