@@ -79,8 +79,47 @@ window.addEventListener("load", () => {
         reader.readAsDataURL(e.target.files[0]);
     }
 
+    function dataURItoBlob(dataURI) {
+        const [metaData, data] = dataURI.split(',');
+        const [prefix, mimeSection] = metaData.split(':');
+        const [mimeString, separator] = mimeSection.split(';')
+
+        const byteString = atob(data);
+        const arrayBuffer = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(arrayBuffer);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+
+        return new Blob([arrayBuffer], { type: mimeString });
+    }
+
+
     $('#predict-button').on('click', function () {
-        let dataForm = new FormData($('#form-upload')[0])
+
+        var imgInfo = canvas.toDataURL("image/png");
+        console.log(imgInfo);
+        var blobImage = dataURItoBlob(imgInfo);
+        var dataForm = new FormData();
+        dataForm.append("image", blobImage)
+
+        $.ajax({
+            url: 'https://localhost:5001/api/v1/image/predict',
+            data: dataForm,
+            processData: false,
+            contentType: false,
+            type: "POST",
+        }).done(function (response) {
+            alert(JSON.stringify(response))
+            console.log(response);
+        }).fail(function (error) {
+            alert(JSON.stringify(error.responseJSON))
+            console.log(error.responseJSON);
+        });
+
+
+
+        /*let dataForm = new FormData($('#form-upload')[0])
         $.ajax({
             // Your server url to process the upload
             url: 'https://localhost:5001/api/v1/image/predict',
@@ -98,6 +137,6 @@ window.addEventListener("load", () => {
         }).fail(function (error) {
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
-        });
+        });*/
     });
 });
