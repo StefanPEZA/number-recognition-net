@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
         $('#imageLoader').click();
     });
 
-    function calculateAspectRatioFit(srcWidth, srcHeight) {
+    function calculateAspectRatioFit(srcWidth, srcHeight, default_size = 420) {
         var ratio = Math.min(default_size / srcWidth, default_size / srcHeight);
         return { width: srcWidth * ratio, height: srcHeight * ratio };
     }
@@ -96,7 +96,7 @@ window.addEventListener("load", () => {
     }
 
     // fac intai ajax la crop, transform sirul de bytes primit in imagine pe care dupa o trimit cropata la resize
-        
+
     $('#predict-button').on('click', function () {
 
         var imgInfo = canvas.toDataURL("image/png");
@@ -130,39 +130,42 @@ window.addEventListener("load", () => {
                 contentType: false,
 
             }).done(function (response) {
-
-                document.getElementById("ItemPreview").src = "data:image/png;base64," + response.processed_image;
-
-                }).fail(function (error) {
-                    alert("not ok");
-                });
+                var img = new Image();
+                img.onload = function () {
+                    let size = calculateAspectRatioFit(img.width, img.height, 280)
+                    context_predicted.drawImage(img, 0, 0, size.width, size.height);
+                }
+                img.src = "data:image/png;base64," + response.processed_image;
+            }).fail(function (error) {
+                alert("not ok");
+            });
 
         }).fail(function (error) {
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
 
-     
+
         });
     });
 
 
-        /*let dataForm = new FormData($('#form-upload')[0])
-        $.ajax({
-            // Your server url to process the upload
-            url: 'https://localhost:5001/api/v1/image/predict',
-            type: 'POST',
+    /*let dataForm = new FormData($('#form-upload')[0])
+    $.ajax({
+        // Your server url to process the upload
+        url: 'https://localhost:5001/api/v1/image/predict',
+        type: 'POST',
 
-            // Form data
-            data: dataForm,
+        // Form data
+        data: dataForm,
 
-            cache: false,
-            contentType: false,
-            processData: false,
-        }).done(function (response) {
-            alert(JSON.stringify(response))
-            console.log(response);
-        }).fail(function (error) {
-            alert(JSON.stringify(error.responseJSON))
-            console.log(error.responseJSON);
-        });*/
-    });
+        cache: false,
+        contentType: false,
+        processData: false,
+    }).done(function (response) {
+        alert(JSON.stringify(response))
+        console.log(response);
+    }).fail(function (error) {
+        alert(JSON.stringify(error.responseJSON))
+        console.log(error.responseJSON);
+    });*/
+});

@@ -19,8 +19,7 @@ namespace NumberRecognitionAPI.Controllers.V1
             _imageService = imageService;
         }
 
-
-        /*[HttpPost]
+        [HttpPost]
         [Route("predict")]
         public async Task<IActionResult> PredictImage(IFormFile image)
         {
@@ -47,19 +46,16 @@ namespace NumberRecognitionAPI.Controllers.V1
             byte[] image_bytes = new byte[image.Length];
             await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
-            byte[,] processed_image = await _imageService.EncodeAsync(image_bytes);
-
             response = new
             {
                 status = "OK",
                 image_length = image.Length,
                 file_name = image.FileName,
                 file_type = image.ContentType,
-                predicted_label = "not yet implemented",
-                processed_image = _imageService.GetMatrixString()
+                predicted_label = "0",
             };
             return Ok(response);
-        }*/
+        }
 
         [HttpPost]
         [Route("resize")]

@@ -20,7 +20,7 @@ namespace Services.ImageService
 
         private Task<int[,]> GetPixelMatrixFromBitmap()
         {
-            int[,] result = new int[image.Height,image.Width];
+            int[,] result = new int[image.Height, image.Width];
             StringBuilder lines = new StringBuilder();
             for (int i = 0; i < image.Height; i++)
             {
@@ -47,7 +47,7 @@ namespace Services.ImageService
             return Task.FromResult(result);
         }
 
-        
+
 
         public async Task<byte[]> Resize(int width, int height)
         {
@@ -68,9 +68,7 @@ namespace Services.ImageService
 
         public async Task<byte[]> Crop()
         {
-
-
-              int[,] imageMatrix = await Task.Run(GetPixelMatrixFromBitmap);
+            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromBitmap);
 
             int minW = image.Width;
             int maxW = 0;
@@ -93,14 +91,12 @@ namespace Services.ImageService
                 }
             }
 
-             int widthBlackSpaces = maxW - minW + 1;
-             int heightBlackSpaces = maxH - minH + 1;
+            int widthBlackSpaces = maxW - minW + 1;
+            int heightBlackSpaces = maxH - minH + 1;
 
 
             // int widthWhiteSpaces = image.Width - widthBlackSpaces;
             // int heightWhiteSpaces = image.Width - widthBlackSpaces;
-
-
 
             Bitmap result = new Bitmap(widthBlackSpaces, heightBlackSpaces);
 
