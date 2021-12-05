@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberRecognitionUI", "NumberRecognitionUI.csproj", "{A5F2286C-0136-4852-BF0D-DEDB52F242F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumberRecognitionUI", "NumberRecognitionUI\NumberRecognitionUI.csproj", "{969390CE-DFBC-463E-92DB-93863A295F37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5F2286C-0136-4852-BF0D-DEDB52F242F9}.Debug|x86.ActiveCfg = Debug|x86
-		{A5F2286C-0136-4852-BF0D-DEDB52F242F9}.Debug|x86.Build.0 = Debug|x86
-		{A5F2286C-0136-4852-BF0D-DEDB52F242F9}.Release|x86.ActiveCfg = Release|x86
-		{A5F2286C-0136-4852-BF0D-DEDB52F242F9}.Release|x86.Build.0 = Release|x86
+		{969390CE-DFBC-463E-92DB-93863A295F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969390CE-DFBC-463E-92DB-93863A295F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969390CE-DFBC-463E-92DB-93863A295F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969390CE-DFBC-463E-92DB-93863A295F37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B91128C7-8EB9-4112-8B7E-FBFB50E2CCD9}
+		SolutionGuid = {7D7F83E1-0540-4B30-8024-C43A3D887975}
 	EndGlobalSection
 EndGlobal
