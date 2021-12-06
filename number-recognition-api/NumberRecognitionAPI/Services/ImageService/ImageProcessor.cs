@@ -60,7 +60,7 @@ namespace Services.ImageService
             var stream = new MemoryStream();
             result.Save(stream, ImageFormat.Png);
 
-            result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
+            //result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
             return stream.ToArray();
         }
 
@@ -121,7 +121,7 @@ namespace Services.ImageService
                 }
             }
 
-            result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
+            //result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
 
             var stream = new MemoryStream();
             result.Save(stream, ImageFormat.Png);
@@ -170,7 +170,7 @@ namespace Services.ImageService
                         }
                     }
                 lastSplit = k;
-                temp.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k + ".png", ImageFormat.Png);
+                //temp.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k + ".png", ImageFormat.Png);
                 var stream = new MemoryStream();
                 temp.Save(stream, ImageFormat.Png);
                 result.Add(stream.ToArray());
