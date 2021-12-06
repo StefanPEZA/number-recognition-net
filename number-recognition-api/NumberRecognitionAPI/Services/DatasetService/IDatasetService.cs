@@ -11,8 +11,8 @@ namespace Services.DatasetService
         Task<IEnumerable<Dataset>> GetAllTestDatasetAsync(string label, int limit = 50);
         Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync(string label, int limit = 50);
         Task<Dataset> GetDatasetAsync(Guid id);
-        Task InsertIntoDataset(Dataset dataset);
-        Task UpdateDataset(Dataset dataset);
-        Task DeleteFromDatasetAsync(Guid id);
+        Task<bool> InsertIntoDataset(Dataset dataset);
+        Task<bool> UpdateDataset(Dataset dataset);
+        Task<bool> DeleteFromDatasetAsync(Guid id);
     }
 }
