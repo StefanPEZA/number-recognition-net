@@ -5,7 +5,7 @@ using Services.DatasetService;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using NumberRecognitionAPI.Utils;
 namespace NumberRecognitionAPI.Controllers.V1
 {
     [ApiVersion("1")]
@@ -103,8 +103,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         [HttpPost("test/{label}")]
         public async Task<IActionResult> AddTestDataset(string label, IFormFile image)
         {
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int) image.Length);
+            object response;
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
+            {
+                return BadRequest(response);
+            }
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             Dataset dataset = await AddToDataset(true, label, image_bytes);
             return Ok(dataset);
         }
@@ -112,8 +118,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         [HttpPost("train/{label}")]
         public async Task<IActionResult> AddTrainDataset(string label, IFormFile image)
         {
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            object response;
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
+            {
+                return BadRequest(response);
+            }
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             Dataset dataset = await AddToDataset(false, label, image_bytes);
             return Ok(dataset);
         }

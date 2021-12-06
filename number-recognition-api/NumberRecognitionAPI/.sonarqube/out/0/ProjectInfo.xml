@@ -4,14 +4,14 @@
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Product</ProjectType>
   <ProjectGuid>9c43110b-0f2a-41cb-836b-bda0c4a7b898</ProjectGuid>
-  <FullPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Domain.csproj</FullPath>
+  <FullPath>D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Domain.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
-    <AnalysisResult Id="FilesToAnalyze" Location="D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\0\FilesToAnalyze.txt" />
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\0\FilesToAnalyze.txt" />
   </AnalysisResults>
   <AnalysisSettings>
-    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0\Issues.json</Property>
-    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0</Property>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0</Property>
   </AnalysisSettings>
   <Configuration>Debug</Configuration>
   <Platform>AnyCPU</Platform>
