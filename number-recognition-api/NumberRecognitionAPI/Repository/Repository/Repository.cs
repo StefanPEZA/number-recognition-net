@@ -32,7 +32,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
+                throw new ArgumentNullException(nameof(entity));
             }
             entities.Add(entity);
             await _applicationDbContext.SaveChangesAsync();
@@ -42,7 +42,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
+                throw new ArgumentNullException(nameof(entity));
             }
             entities.Update(entity);
             await _applicationDbContext.SaveChangesAsync();
@@ -52,7 +52,7 @@ namespace Repository.Repository
         {
             if (entity == null)
             {
-                await Task.Run(() => throw new ArgumentNullException(nameof(entity)));
+                throw new ArgumentNullException(nameof(entity));
             }
             entities.Remove(entity);
             await _applicationDbContext.SaveChangesAsync();

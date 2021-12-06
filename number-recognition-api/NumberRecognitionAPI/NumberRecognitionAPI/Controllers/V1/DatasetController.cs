@@ -34,7 +34,12 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
-            return Ok(datasetEntity);
+            response = new
+            {
+                status = "OK",
+                dataset = datasetEntity
+            };
+            return Ok(response);
         }
 
         [HttpGet("all/{label}")]
@@ -51,7 +56,12 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
-            return Ok(dataset);
+            response = new
+            {
+                status = "OK",
+                datasets = dataset
+            };
+            return Ok(response);
         }
 
         [HttpGet("train/{label}")]
@@ -68,7 +78,12 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
-            return Ok(dataset);
+            response = new
+            {
+                status = "OK",
+                datasets = dataset
+            };
+            return Ok(response);
         }
 
         [HttpGet("test/{label}")]
@@ -85,7 +100,12 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
-            return Ok(dataset);
+            response = new
+            {
+                status = "OK",
+                datasets = dataset
+            };
+            return Ok(response);
         }
 
         private async Task<Dataset> AddToDataset(bool isTest, string label, byte[] image_bytes)
@@ -112,7 +132,13 @@ namespace NumberRecognitionAPI.Controllers.V1
             }
             byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             Dataset dataset = await AddToDataset(true, label, image_bytes);
-            return Ok(dataset);
+
+            response = new
+            {
+                status = "OK",
+                dataset = dataset
+            };
+            return Ok(response);
         }
 
         [HttpPost("train/{label}")]
@@ -127,7 +153,36 @@ namespace NumberRecognitionAPI.Controllers.V1
             }
             byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             Dataset dataset = await AddToDataset(false, label, image_bytes);
-            return Ok(dataset);
+
+            response = new
+            {
+                status = "OK",
+                dataset = dataset
+            };
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteDatasetWithId(Guid id)
+        {
+            object response;
+            bool result = await _datasetService.DeleteFromDatasetAsync(id);
+            if (!result)
+            {
+                response = new
+                {
+                    status = "ERROR",
+                    message = "No dataset entry was found with id: " + id.ToString()
+                };
+                return BadRequest(response);
+            }
+
+            response = new
+            {
+                status = "OK",
+                dataset = result
+            };
+            return Ok(response);
         }
     }
 }

@@ -34,40 +34,46 @@ namespace Services.DatasetService
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task InsertIntoDataset(Dataset dataset)
+        public async Task<bool> InsertIntoDataset(Dataset dataset)
         {
             try
             {
                 await _repository.InsertAsync(dataset);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return false;
             }
         }
 
-        public async Task UpdateDataset(Dataset dataset)
+        public async Task<bool> UpdateDataset(Dataset dataset)
         {
             try
             {
                 await _repository.UpdateAsync(dataset);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return false;
             }
         }
 
-        public async Task DeleteFromDatasetAsync(Guid id)
+        public async Task<bool> DeleteFromDatasetAsync(Guid id)
         {
             try
             {
                 Dataset dataset = await _repository.GetByIdAsync(id);
                 await _repository.DeleteAsync(dataset);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return false;
             }
         }
     }
