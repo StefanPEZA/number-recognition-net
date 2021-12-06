@@ -14,19 +14,19 @@ namespace Services.DatasetService
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Dataset>> GetAllDatasetAsync(int label, int limit = 10)
+        public async Task<IEnumerable<Dataset>> GetAllDatasetAsync(string label, int limit = 50)
         {
             return await _repository.GetAllAsync(limit, d => d.Label == label);
         }
 
-        public async Task<IEnumerable<Dataset>> GetAllTestDatasetAsync(int label, int limit = 10)
+        public async Task<IEnumerable<Dataset>> GetAllTestDatasetAsync(string label, int limit = 50)
         {
-            return await _repository.GetAllAsync(limit, d => d.IsTest && d.Label == label);
+            return await _repository.GetAllAsync(limit, d => (bool)d.IsTest && d.Label == label);
         }
 
-        public async Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync(int label, int limit = 10)
+        public async Task<IEnumerable<Dataset>> GetAllTrainDatasetAsync(string label, int limit = 50)
         {
-            return await _repository.GetAllAsync(limit, d => !d.IsTest && d.Label == label);
+            return await _repository.GetAllAsync(limit, d => !(bool)d.IsTest && d.Label == label);
         }
 
         public async Task<Dataset> GetDatasetAsync(Guid id)
@@ -36,18 +36,39 @@ namespace Services.DatasetService
 
         public async Task InsertIntoDataset(Dataset dataset)
         {
-            await _repository.InsertAsync(dataset);
+            try
+            {
+                await _repository.InsertAsync(dataset);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public async Task UpdateDataset(Dataset dataset)
         {
-            await _repository.UpdateAsync(dataset);
+            try
+            {
+                await _repository.UpdateAsync(dataset);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public async Task DeleteFromDatasetAsync(Guid id)
         {
-            Dataset dataset = await _repository.GetByIdAsync(id);
-            await _repository.DeleteAsync(dataset);
+            try
+            {
+                Dataset dataset = await _repository.GetByIdAsync(id);
+                await _repository.DeleteAsync(dataset);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class CreateDatasetTable : Migration
+    public partial class create_dataset_table : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace Repository.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
-                    label = table.Column<int>(type: "INT", nullable: false),
+                    label = table.Column<string>(type: "TEXT", nullable: true),
                     image = table.Column<byte[]>(type: "BLOB", nullable: true),
                     is_test = table.Column<bool>(type: "INT", nullable: false)
                 },

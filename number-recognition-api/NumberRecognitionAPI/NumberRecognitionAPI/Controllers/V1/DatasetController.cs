@@ -1,4 +1,5 @@
 ﻿using Domain.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.DatasetService;
 using System;
@@ -37,7 +38,7 @@ namespace NumberRecognitionAPI.Controllers.V1
         }
 
         [HttpGet("all/{label}")]
-        public async Task<IActionResult> GetAllDataset(int label, [FromQuery] int limit = 10)
+        public async Task<IActionResult> GetAllDataset(string label, [FromQuery] int limit = 50)
         {
             object response;
             List<Dataset> dataset = (List<Dataset>)await _datasetService.GetAllDatasetAsync(label, limit);
@@ -54,7 +55,7 @@ namespace NumberRecognitionAPI.Controllers.V1
         }
 
         [HttpGet("train/{label}")]
-        public async Task<IActionResult> GetAllTrainDataset(int label, [FromQuery] int limit = 10)
+        public async Task<IActionResult> GetAllTrainDataset(string label, [FromQuery] int limit = 50)
         {
             object response;
             List<Dataset> dataset = (List<Dataset>)await _datasetService.GetAllTrainDatasetAsync(label, limit);
@@ -71,7 +72,7 @@ namespace NumberRecognitionAPI.Controllers.V1
         }
 
         [HttpGet("test/{label}")]
-        public async Task<IActionResult> GetAllTestDataset(int label, [FromQuery] int limit = 10)
+        public async Task<IActionResult> GetAllTestDataset(string label, [FromQuery] int limit = 50)
         {
             object response;
             List<Dataset> dataset = (List<Dataset>)await _datasetService.GetAllTestDatasetAsync(label, limit);
@@ -84,6 +85,36 @@ namespace NumberRecognitionAPI.Controllers.V1
                 };
                 return BadRequest(response);
             }
+            return Ok(dataset);
+        }
+
+        private async Task<Dataset> AddToDataset(bool isTest, string label, byte[] image_bytes)
+        {
+            Dataset dataset = new Dataset()
+            {
+                Label = label,
+                ImageMatrix = image_bytes,
+                IsTest = isTest
+            };
+            await _datasetService.InsertIntoDataset(dataset);
+            return dataset;
+        }
+
+        [HttpPost("test/{label}")]
+        public async Task<IActionResult> AddTestDataset(string label, IFormFile image)
+        {
+            byte[] image_bytes = new byte[image.Length];
+            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int) image.Length);
+            Dataset dataset = await AddToDataset(true, label, image_bytes);
+            return Ok(dataset);
+        }
+
+        [HttpPost("train/{label}")]
+        public async Task<IActionResult> AddTrainDataset(string label, IFormFile image)
+        {
+            byte[] image_bytes = new byte[image.Length];
+            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            Dataset dataset = await AddToDataset(false, label, image_bytes);
             return Ok(dataset);
         }
     }

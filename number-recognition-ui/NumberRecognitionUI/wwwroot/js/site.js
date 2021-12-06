@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
     function draw(e) {
         if (!painting) return;
 
-        context.lineWidth = 10;
+        context.lineWidth = 15;
         context.lineCap = 'round';
 
         context.lineTo(e.clientX - canvas.getBoundingClientRect().left,
@@ -122,7 +122,6 @@ window.addEventListener("load", () => {
             dataForm.append("image", blobImageSecond);
 
             $.ajax({
-
                 url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
                 type: "POST",
                 data: dataForm,
@@ -133,6 +132,7 @@ window.addEventListener("load", () => {
                 var img = new Image();
                 img.onload = function () {
                     let size = calculateAspectRatioFit(img.width, img.height, 280)
+                    context_predicted.clearRect(0, 0, predicted_canvas.width, predicted_canvas.height);
                     context_predicted.drawImage(img, 0, 0, size.width, size.height);
                 }
                 img.src = "data:image/png;base64," + response.processed_image;
