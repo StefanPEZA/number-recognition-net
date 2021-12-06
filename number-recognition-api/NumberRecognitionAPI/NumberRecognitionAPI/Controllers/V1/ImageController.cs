@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Services.ImageService;
 using System.Collections.Generic;
+using NumberRecognitionAPI.Utils;
 
 namespace NumberRecognitionAPI.Controllers.V1
 {            
@@ -25,27 +26,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         public async Task<IActionResult> PredictImage(IFormFile image)
         {
             object response;
-            if (image == null || !image.ContentType.Contains("image"))
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
             {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "You didn't sent an image!"
-                };
-                return BadRequest(response);
-            }
-            if (image.Length > 512_000)
-            {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "Image too large, you can upload files up to 500 KB!"
-                };
                 return BadRequest(response);
             }
 
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
 
             response = new
             {
@@ -63,27 +51,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         public async Task<IActionResult> ResizeImage(IFormFile image, int width, int height)
         {
             object response;
-            if (image == null || !image.ContentType.Contains("image"))
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
             {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "You didn't sent an image!"
-                };
-                return BadRequest(response);
-            }
-            if (image.Length > 512_000)
-            {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "Image too large, you can upload files up to 500 KB!"
-                };
                 return BadRequest(response);
             }
 
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             byte[] processed_image = await _imageService.Resize(image_bytes,width,height);
 
             response = new
@@ -99,27 +74,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         public async Task<IActionResult> CropImage(IFormFile image)
         {
             object response;
-            if (image == null || !image.ContentType.Contains("image"))
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
             {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "You didn't sent an image!"
-                };
-                return BadRequest(response);
-            }
-            if (image.Length > 512_000)
-            {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "Image too large, you can upload files up to 500 KB!"
-                };
                 return BadRequest(response);
             }
 
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             byte[] processed_image = await _imageService.Crop(image_bytes);
 
             response = new
@@ -135,27 +97,14 @@ namespace NumberRecognitionAPI.Controllers.V1
         public async Task<IActionResult> SplitImage(IFormFile image)
         {
             object response;
-            if (image == null || !image.ContentType.Contains("image"))
+            bool valid;
+            (valid, response) = Shared.CheckIfIsValidImage(image);
+            if (!valid)
             {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "You didn't sent an image!"
-                };
-                return BadRequest(response);
-            }
-            if (image.Length > 512_000)
-            {
-                response = new
-                {
-                    status = "ERROR",
-                    message = "Image too large, you can upload files up to 500 KB!"
-                };
                 return BadRequest(response);
             }
 
-            byte[] image_bytes = new byte[image.Length];
-            await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
+            byte[] image_bytes = await Shared.IFormFileToByteArray(image);
             List<byte[]> processed_image = await _imageService.Split(image_bytes);
 
             response = new

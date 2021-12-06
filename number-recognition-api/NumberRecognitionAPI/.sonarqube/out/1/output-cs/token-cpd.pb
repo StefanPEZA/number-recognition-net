@@ -1,5 +1,5 @@
-Ì
-oD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
+Å
+hD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
 	namespace		 	
 
 Repository		
@@ -56,8 +56,8 @@ DatasetMap0 :
 ;. /
 } 	
 } 
-} Œ
-‡D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211108091052_CreateDatasetTable.cs
+} ‹
+‚D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
 	namespace 	
 
 Repository
@@ -69,10 +69,10 @@ Migrations 
 public 
 
 partial 
-class 
-CreateDatasetTable +
-:, -
-	Migration. 7
+class  
+create_dataset_table -
+:. /
+	Migration0 9
 { 
 	protected 
 override 
@@ -128,19 +128,19 @@ Migrations 
 table !
 .! "
 Column" (
-<( )
-int) ,
->, -
-(- .
-type. 2
-:2 3
-$str4 9
-,9 :
-nullable; C
-:C D
-falseE J
-)J K
-,K L
+<( )
+string) /
+>/ 0
+(0 1
+type1 5
+:5 6
+$str7 =
+,= >
+nullable? G
+:G H
+trueI M
+)M N
+,N O
 image 
 = 
 table !
@@ -223,9 +223,136 @@ PrimaryKey $
 ;  !
 } 	
 } 
-} ÷
+} ñ
+~D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
+	namespace 	
 
-qD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
+Repository
+ 
+. 
+
+Migrations 
+{ 
+public 
+
+partial 
+class 
+is_test_nullable )
+:* +
+	Migration, 5
+{ 
+	protected 
+override 
+void 
+Up  "
+(" #
+MigrationBuilder# 3
+migrationBuilder4 D
+)D E
+{ 	
+migrationBuilder		 
+.		 
+AlterColumn		 (
+<		( )
+bool		) -
+>		- .
+(		. /
+name
+
+ 
+:
+
+ 
+$str
+
+ 
+,
+
+  
+table 
+: 
+$str  
+,  !
+type 
+: 
+$str 
+, 
+nullable 
+: 
+true 
+, 
+
+oldClrType 
+: 
+typeof "
+(" #
+bool# '
+)' (
+,( )
+oldType 
+: 
+$str 
+) 
+;  
+} 	
+	protected 
+override 
+void 
+Down  $
+($ %
+MigrationBuilder% 5
+migrationBuilder6 F
+)F G
+{ 	
+migrationBuilder 
+. 
+AlterColumn (
+<( )
+bool) -
+>- .
+(. /
+name 
+: 
+$str 
+,  
+table 
+: 
+$str  
+,  !
+type 
+: 
+$str 
+, 
+nullable 
+: 
+false 
+,  
+defaultValue 
+: 
+false #
+,# $
+
+oldClrType 
+: 
+typeof "
+(" #
+bool# '
+)' (
+,( )
+oldType 
+: 
+$str 
+, 
+oldNullable 
+: 
+true !
+)! "
+;" #
+} 	
+} 
+} ð
+
+jD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
 	namespace 	
 
 Repository
@@ -354,8 +481,8 @@ BaseEntity, 6
 )! "
 ;" #
 } 
-} ý)
-pD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
+} Ú(
+iD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
 	namespace 	
 
 Repository
@@ -560,14 +687,11 @@ Repository 
 throw##% *
 new##+ .!
 ArgumentNullException##/ D
-(##D E
-nameof##E K
-(##K L
-entity##L R
-)##R S
-)##S T
-)##T U
-;##U V
+(##D E
+$str##E M
+)##M N
+)##N O
+;##O P
 }$$ 
 entities%% 
 .%% 
@@ -611,14 +735,11 @@ Repository 
 throw--% *
 new--+ .!
 ArgumentNullException--/ D
-(--D E
-nameof--E K
-(--K L
-entity--L R
-)--R S
-)--S T
-)--T U
-;--U V
+(--D E
+$str--E M
+)--M N
+)--N O
+;--O P
 }.. 
 entities// 
 .// 
@@ -662,14 +783,11 @@ Repository 
 throw77% *
 new77+ .!
 ArgumentNullException77/ D
-(77D E
-nameof77E K
-(77K L
-entity77L R
-)77R S
-)77S T
-)77T U
-;77U V
+(77D E
+$str77E M
+)77M N
+)77N O
+;77O P
 }88 
 entities99 
 .99 

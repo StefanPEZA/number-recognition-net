@@ -1,5 +1,5 @@
-﻿D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\DatasetService.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\IDatasetService.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\IImageService.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageService.cs
+﻿D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\DatasetService.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\IDatasetService.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\IImageService.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageService.cs

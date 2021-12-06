@@ -1,1 +1,1 @@
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0

@@ -143,6 +143,23 @@ namespace Services.ImageService
             return stream.ToArray();
         }
 
+        private Bitmap BitmapCreator(int splitIndex, int lastSplit, int[,] imageMatrix)
+        {
+            Bitmap temp = new Bitmap(splitIndex - lastSplit, image.Height);
+            for (int j = 0; j < image.Height; j++)
+                for (int i = lastSplit; i < splitIndex; i++)
+                {
+                    if (imageMatrix[j, i] == 0)
+                    {
+                        temp.SetPixel(i - lastSplit, j, Color.FromArgb(255, 255, 255));
+                    }
+                    else
+                    {
+                        temp.SetPixel(i - lastSplit, j, Color.FromArgb(imageMatrix[j, i], 0, 0, 0));
+                    }
+                }
+            return temp;
+        }
 
         public async Task<List<byte[]>> Split()
         {
@@ -170,25 +187,14 @@ namespace Services.ImageService
             int lastSplit = 0;
             //splitList.Remove(splitList[splitList.Count - 1]);
 
-            foreach (int k in splitList)
+            foreach (int splitIndex in splitList)
             {
-                Bitmap temp = new Bitmap(k - lastSplit, image.Height);
-                for (int j = 0; j < image.Height; j++)
-                    for (int i = lastSplit; i < k; i++)
-                    {
-                        if (imageMatrix[j, i] == 0)
-                        {
-                            temp.SetPixel(i - lastSplit, j, Color.FromArgb(255, 255, 255));
-                        }
-                        else
-                        {
-                            temp.SetPixel(i - lastSplit, j, Color.FromArgb(imageMatrix[j, i], 0, 0, 0));
-                        }
-                    }
-                lastSplit = k;
+                Bitmap temp = BitmapCreator(splitIndex, lastSplit, imageMatrix);
+                lastSplit = splitIndex;
                 //temp.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k + ".png", ImageFormat.Png);
                 var stream = new MemoryStream();
                 temp.Save(stream, ImageFormat.Png);
+                temp.Dispose();
                 result.Add(stream.ToArray());
 
             }

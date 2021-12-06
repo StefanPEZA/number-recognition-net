@@ -18,12 +18,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 35,
                   "startColumn": 44,
                   "endLine": 35,
-                  "endColumn": 85
+                  "endColumn": 79
                 }
               }
             }
@@ -39,12 +39,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 45,
                   "startColumn": 44,
                   "endLine": 45,
-                  "endColumn": 85
+                  "endColumn": 79
                 }
               }
             }
@@ -60,12 +60,75 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
                 "region": {
                   "startLine": 55,
                   "startColumn": 44,
                   "endLine": 55,
-                  "endColumn": 85
+                  "endColumn": 79
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1507",
+          "level": "note",
+          "message": "Use nameof in place of string literal 'entity'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 70,
+                  "endLine": 35,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1507",
+          "level": "note",
+          "message": "Use nameof in place of string literal 'entity'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 70,
+                  "endLine": 45,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1507",
+          "level": "note",
+          "message": "Use nameof in place of string literal 'entity'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Repository/Repository/Repository.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 70,
+                  "endLine": 55,
+                  "endColumn": 78
                 }
               }
             }
@@ -76,6 +139,21 @@
         }
       ],
       "rules": {
+        "CA1507": {
+          "id": "CA1507",
+          "shortDescription": "Use nameof to express symbol names",
+          "fullDescription": "Using nameof helps keep your code valid when refactoring.",
+          "defaultLevel": "note",
+          "helpUri": "https://docs.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1507",
+          "properties": {
+            "category": "Maintainability",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
         "S3928": {
           "id": "S3928",
           "shortDescription": "Parameter names used into ArgumentException constructors should match an existing one ",

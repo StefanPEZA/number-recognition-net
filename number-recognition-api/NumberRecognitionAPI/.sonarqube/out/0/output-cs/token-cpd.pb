@@ -1,5 +1,5 @@
-ï
-nD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
+è
+gD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
 	namespace
 
  	
@@ -99,9 +99,9 @@ DatasetMap 
 . 
 HasColumnType 
 ( 
-$str $
-)$ %
-;% &
+$str %
+)% &
+;& '
 builder 
 . 
 Property 
@@ -154,8 +154,8 @@ DatasetMap 
 ;% &
 } 	
 } 
-} Á
-hD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
+} º
+aD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
 	namespace 	
 Domain
  
@@ -178,50 +178,56 @@ BaseEntity 
 ;! "
 }# $
 } 
-}		 ·
-eD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
-	namespace 	
-Domain
+}		 ó
+^D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
+	namespace 	
+Domain
  
-. 
-Models 
-{ 
-public 
+. 
+Models 
+{ 
+public 
 
-class 
-Dataset 
-: 
+class 
+Dataset 
+: 
 
-BaseEntity %
-{ 
-public 
-int 
-Label 
-{ 
-get 
-; 
-set  #
-;# $
-}% &
-public 
-byte 
-[ 
-] 
-ImageMatrix !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
-public 
-bool 
-IsTest 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-} 
-}		 
+BaseEntity %
+{ 
+public 
+string 
+Label 
+{ 
+get !
+;! "
+set# &
+;& '
+}( )
+public 
+byte 
+[ 
+] 
+ImageMatrix !
+{" #
+get$ '
+;' (
+set) ,
+;, -
+}. /
+public		 
+bool		 
+?		 
+IsTest		 
+{		 
+get		 !
+;		! "
+set		# &
+;		& '
+}		( )
+=		* +
+false		, 1
+;		1 2
+}
+
+ 
+} 
