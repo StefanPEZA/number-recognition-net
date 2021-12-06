@@ -55,7 +55,7 @@ namespace NumberRecognitionAPI.Controllers.V1
                 image_length = image.Length,
                 file_name = image.FileName,
                 file_type = image.ContentType,
-                predicted_label = "not yet implemented",
+                predicted_label = "0",
             };
             return Ok(response);
         }
