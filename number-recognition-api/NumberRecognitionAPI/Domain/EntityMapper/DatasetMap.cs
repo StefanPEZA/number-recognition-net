@@ -19,7 +19,7 @@ namespace Domain.EntityMapper
                 .HasColumnType("UniqueIdentifier");
             builder.Property(x => x.Label).ValueGeneratedOnAdd()
                 .HasColumnName("label")
-                .HasColumnType("INT");
+                .HasColumnType("TEXT");
             builder.Property(x => x.ImageMatrix).ValueGeneratedOnAdd()
                 .HasColumnName("image")
                 .HasColumnType("BLOB");

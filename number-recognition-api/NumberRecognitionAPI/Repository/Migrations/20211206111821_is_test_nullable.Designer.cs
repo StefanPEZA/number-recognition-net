@@ -9,8 +9,8 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211108091052_CreateDatasetTable")]
-    partial class CreateDatasetTable
+    [Migration("20211206111821_is_test_nullable")]
+    partial class is_test_nullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,14 +30,14 @@ namespace Repository.Migrations
                         .HasColumnType("BLOB")
                         .HasColumnName("image");
 
-                    b.Property<bool>("IsTest")
+                    b.Property<bool?>("IsTest")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INT")
                         .HasColumnName("is_test");
 
-                    b.Property<int>("Label")
+                    b.Property<string>("Label")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INT")
+                        .HasColumnType("TEXT")
                         .HasColumnName("label");
 
                     b.HasKey("Id")

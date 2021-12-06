@@ -1,9 +1,11 @@
-﻿namespace Domain.Models
+﻿using System;
+
+namespace Domain.Models
 {
     public class Dataset : BaseEntity
     {
-        public int Label { get; set; }
+        public string Label { get; set; }
         public byte[] ImageMatrix { get; set; }
-        public bool IsTest { get; set; }
+        public bool? IsTest { get; set; } = false;
     }
 }

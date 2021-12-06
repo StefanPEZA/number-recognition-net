@@ -47,8 +47,6 @@ namespace NumberRecognitionAPI.Controllers.V1
             byte[] image_bytes = new byte[image.Length];
             await image.OpenReadStream().ReadAsync(image_bytes, 0, (int)image.Length);
 
-            byte[] processed_image = await _imageService.Crop(image_bytes);
-
             response = new
             {
                 status = "OK",
