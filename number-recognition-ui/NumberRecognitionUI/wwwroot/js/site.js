@@ -7,10 +7,14 @@
 window.addEventListener("load", () => {
 
     const canvas = document.querySelector("#canvas");
+    const context = canvas.getContext("2d");
+
     const predicted_canvas = document.querySelector("#predicted-canvas");
     const context_predicted = predicted_canvas.getContext("2d");
-    const context = canvas.getContext("2d");
-    const start_background_color = "white";
+
+    const predict_text = document.getElementById("predict")
+    predict_text.style = "font-size: 20px;"
+
     var imageLoader = document.getElementById('imageLoader');
     imageLoader.addEventListener('change', handleImage, true);
 
@@ -111,61 +115,60 @@ window.addEventListener("load", () => {
             contentType: false,
             type: "POST",
 
-        }).done(function (response) {
-
-
-            var url = "data:image/png;base64," + response.processed_image;
-            var blobImageSecond = dataURItoBlob(url);
-
-
-            var dataForm = new FormData();
-            dataForm.append("image", blobImageSecond);
-
-            $.ajax({
-                url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
-                type: "POST",
-                data: dataForm,
-                processData: false,
-                contentType: false,
-
-            }).done(function (response) {
-                var img = new Image();
-                img.onload = function () {
-                    let size = calculateAspectRatioFit(img.width, img.height, 280)
-                    context_predicted.clearRect(0, 0, predicted_canvas.width, predicted_canvas.height);
-                    context_predicted.drawImage(img, 0, 0, size.width, size.height);
-                }
-                img.src = "data:image/png;base64," + response.processed_image;
-            }).fail(function (error) {
-                alert("not ok");
-            });
-
-        }).fail(function (error) {
+        }).done(HandleResizeAfterCrop).fail(function (error) {
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
-
-
         });
     });
 
 
-    /*let dataForm = new FormData($('#form-upload')[0])
-    $.ajax({
-        // Your server url to process the upload
-        url: 'https://localhost:5001/api/v1/image/predict',
-        type: 'POST',
+    function HandleResizeAfterCrop(response) {
+        var url = "data:image/png;base64," + response.processed_image;
+        var blobImageSecond = dataURItoBlob(url);
 
-        // Form data
-        data: dataForm,
+        var dataForm = new FormData();
+        dataForm.append("image", blobImageSecond);
 
-        cache: false,
-        contentType: false,
-        processData: false,
-    }).done(function (response) {
-        alert(JSON.stringify(response))
-        console.log(response);
-    }).fail(function (error) {
-        alert(JSON.stringify(error.responseJSON))
-        console.log(error.responseJSON);
-    });*/
+        $.ajax({
+            url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).done(function (response) {
+            var img = new Image();
+            img.onload = function () {
+                let size = calculateAspectRatioFit(img.width, img.height, 280)
+                context_predicted.clearRect(0, 0, predicted_canvas.width, predicted_canvas.height);
+                context_predicted.drawImage(img, 0, 0, size.width, size.height);
+            }
+            img.src = "data:image/png;base64," + response.processed_image;
+            HandlePredict(response)
+        }).fail(function (error) {
+            alert("not ok");
+        });
+    }
+
+
+    function HandlePredict(response) {
+        var url = "data:image/png;base64," + response.processed_image;
+        var blobImageSecond = dataURItoBlob(url);
+
+        var dataForm = new FormData();
+        dataForm.append("image", blobImageSecond);
+
+        $.ajax({
+            url: 'https://localhost:5001/api/v1/image/predict',
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).done(function (response) {
+            predict_text.value = response.predicted_label;
+        }).fail(function (error) {
+            alert("not ok");
+        });
+    }
 });
