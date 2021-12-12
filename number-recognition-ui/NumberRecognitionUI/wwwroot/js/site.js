@@ -9,6 +9,7 @@ window.addEventListener("load", () => {
     const canvas = document.querySelector("#canvas");
     const context = canvas.getContext("2d");
 
+    var processed_image;
     const predicted_canvas = document.querySelector("#predicted-canvas");
     const context_predicted = predicted_canvas.getContext("2d");
 
@@ -99,9 +100,9 @@ window.addEventListener("load", () => {
         return new Blob([arrayBuffer], { type: mimeString });
     }
 
-    // fac intai ajax la crop, transform sirul de bytes primit in imagine pe care dupa o trimit cropata la resize
 
     $('#predict-button').on('click', function () {
+
 
         var imgInfo = canvas.toDataURL("image/png");
         var blobImage = dataURItoBlob(imgInfo);
@@ -116,6 +117,7 @@ window.addEventListener("load", () => {
             type: "POST",
 
         }).done(HandleResizeAfterCrop).fail(function (error) {
+            
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
         });
@@ -123,6 +125,7 @@ window.addEventListener("load", () => {
 
 
     function HandleResizeAfterCrop(response) {
+
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
 
@@ -137,6 +140,8 @@ window.addEventListener("load", () => {
             contentType: false,
 
         }).done(function (response) {
+
+    
             var img = new Image();
             img.onload = function () {
                 let size = calculateAspectRatioFit(img.width, img.height, 280)
@@ -144,6 +149,7 @@ window.addEventListener("load", () => {
                 context_predicted.drawImage(img, 0, 0, size.width, size.height);
             }
             img.src = "data:image/png;base64," + response.processed_image;
+            processed_image = response.processed_image;
             HandlePredict(response)
         }).fail(function (error) {
             alert("not ok");
@@ -152,6 +158,9 @@ window.addEventListener("load", () => {
 
 
     function HandlePredict(response) {
+
+        $('#predict-button').css("display", "none");
+        $('#after-predict').css("display", "flex");
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
 
@@ -171,4 +180,62 @@ window.addEventListener("load", () => {
             alert("not ok");
         });
     }
+
+    $('#predicted-false').on('click', function () {
+        location.reload();
+    });
+
+    $('#close-modal').on('click', function () {
+        location.reload();
+
+    })
+
+    function AddToTrainDataset(dataForm, predicted_label) {
+        $.ajax({
+
+            url: 'https://localhost:5001/api/v1/dataset/train/' + predicted_label,
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).fail(function (reponse) {
+            alert('Something wrong');
+        });
+    }
+
+    function AddToTestDataset(dataForm, predicted_label) {
+
+        $.ajax({
+
+            url: 'https://localhost:5001/api/v1/dataset/test/' + predicted_label,
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).done(function (response) {
+
+            $('#save-image').css("display", "none");
+            $('#modal-agree').css("display", "none");
+            $('#after-save').css("display", "block");
+        }).fail(function (reponse) {
+            alert('Something wrong');
+        });
+    }
+
+    $('#save-image').on('click', function () {
+
+        var url = "data:image/png;base64," + processed_image;
+        var blobImageSecond = dataURItoBlob(url);
+
+        var dataForm = new FormData();
+        dataForm.append("image", blobImageSecond);
+
+        predicted_label = $('#predict').val();
+
+        AddToTrainDataset(dataForm, predicted_label);
+        AddToTestDataset(dataForm, predicted_label);
+
+    });
 });
