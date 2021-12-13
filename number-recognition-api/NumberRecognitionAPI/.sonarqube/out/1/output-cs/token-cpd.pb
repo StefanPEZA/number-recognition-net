@@ -1,5 +1,5 @@
-Å
-hD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
+Ì
+oD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
 	namespace		 	
 
 Repository		
@@ -56,8 +56,8 @@ DatasetMap0 :
 ;. /
 } 	
 } 
-} ‹
-‚D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
+} ’
+‰D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
 	namespace 	
 
 Repository
@@ -223,8 +223,8 @@ PrimaryKey $
 ;  !
 } 	
 } 
-} ñ
-~D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
+} ù
+…D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
 	namespace 	
 
 Repository
@@ -350,9 +350,9 @@ oldClrType 
 ;" #
 } 	
 } 
-} ð
+} ÷
 
-jD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
+qD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
 	namespace 	
 
 Repository
@@ -481,8 +481,8 @@ BaseEntity, 6
 )! "
 ;" #
 } 
-} œ%
-iD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
+} —%
+pD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
 	namespace 	
 
 Repository
@@ -659,56 +659,57 @@ Repository 
 idD F
 )F G
 ;G H
-} 	
-private 
-static 
-void 
-parameter_check +
-(+ ,
-T, -
-entity. 4
-)4 5
-{   	
-if!! 
-(!! 
-entity!! 
-==!! 
-null!! 
-)!! 
-{"" 
-throw## 
-new## !
-ArgumentNullException## /
-(##/ 0
-nameof##0 6
-(##6 7
-entity##7 =
-)##= >
-)##> ?
-;##? @
-}$$ 
-}%% 	
+} 	
+public 
+async 
+Task 
+InsertAsync %
+(% &
+T& '
+entity( .
+). /
+{   	
+CheckForNull!! 
+(!! 
+entity!! 
+)!!  
+;!!  !
+entities"" 
+."" 
+Add"" 
+("" 
+entity"" 
+)""  
+;""  !
+await## !
+_applicationDbContext## '
+.##' (
+SaveChangesAsync##( 8
+(##8 9
+)##9 :
+;##: ;
+}$$ 	
 public&& 
 async&& 
 Task&& 
-InsertAsync&& %
+UpdateAsync&& %
 (&&% &
 T&&& '
 entity&&( .
 )&&. /
-{'' 	
-parameter_check(( 
-((( 
-entity(( "
-)((" #
-;((# $
+{'' 	
+CheckForNull(( 
+((( 
+entity(( 
+)((  
+;((  !
 entities)) 
-.)) 
-Add)) 
-()) 
-entity)) 
-)))  
-;))  !
+.)) 
+Update)) 
+()) 
+entity)) "
+)))" #
+;))# $
 await** !
 _applicationDbContext** '
 .**' (
@@ -720,20 +721,20 @@ Repository 
 public-- 
 async-- 
 Task-- 
-UpdateAsync-- %
+DeleteAsync-- %
 (--% &
 T--& '
 entity--( .
 )--. /
-{.. 	
-parameter_check// 
-(// 
-entity// "
-)//" #
-;//# $
+{.. 	
+CheckForNull// 
+(// 
+entity// 
+)//  
+;//  !
 entities00 
 .00 
-Update00 
+Remove00 
 (00 
 entity00 "
 )00" #
@@ -745,35 +746,34 @@ Repository 
 (118 9
 )119 :
 ;11: ;
-}22 	
-public44 
-async44 
-Task44 
-DeleteAsync44 %
-(44% &
-T44& '
-entity44( .
-)44. /
-{55 	
-parameter_check66 
-(66 
-entity66 "
-)66" #
-;66# $
-entities77 
-.77 
-Remove77 
-(77 
-entity77 "
-)77" #
-;77# $
-await88 !
-_applicationDbContext88 '
-.88' (
-SaveChangesAsync88( 8
-(888 9
-)889 :
-;88: ;
-}99 	
-}:: 
-};; 
+}22 	
+private44 
+static44 
+void44 
+CheckForNull44 (
+(44( )
+T44) *
+entity44+ 1
+)441 2
+{55 	
+if66 
+(66 
+entity66 
+==66 
+null66 
+)66 
+{77 
+throw88 
+new88 !
+ArgumentNullException88 /
+(88/ 0
+nameof880 6
+(886 7
+entity887 =
+)88= >
+)88> ?
+;88? @
+}99 
+}:: 	
+};; 
+}<< 

@@ -12,18 +12,18 @@
       },
       "results": [
         {
-          "ruleId": "S1481",
+          "ruleId": "S5122",
           "level": "warning",
-          "message": "Remove the unused local variable 'image_bytes'.",
+          "message": "Make sure this permissive CORS policy is safe here.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Startup.cs",
                 "region": {
-                  "startLine": 36,
-                  "startColumn": 20,
-                  "endLine": 36,
-                  "endColumn": 31
+                  "startLine": 32,
+                  "startColumn": 39,
+                  "endLine": 32,
+                  "endColumn": 63
                 }
               }
             }
@@ -33,18 +33,18 @@
           }
         },
         {
-          "ruleId": "S5122",
+          "ruleId": "S1481",
           "level": "warning",
-          "message": "Make sure this permissive CORS policy is safe here.",
+          "message": "Remove the unused local variable 'image_bytes'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Startup.cs",
+                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
                 "region": {
-                  "startLine": 32,
-                  "startColumn": 39,
-                  "endLine": 32,
-                  "endColumn": 63
+                  "startLine": 36,
+                  "startColumn": 20,
+                  "endLine": 36,
+                  "endColumn": 31
                 }
               }
             }
