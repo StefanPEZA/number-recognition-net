@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -25,10 +26,37 @@
                 <input type="text" value=" " id="predict" style="margin-left: 15px;" />
             </div>
             <form id="form-upload" enctype="multipart/form-data">
-                <input type="file" id="imageLoader" name="image" style="display:none;" aria-label="uploaded image"/>
+                <input type="file" id="imageLoader" name="image" style="display:none;" aria-label="uploaded image" />
             </form>
             <button id="predict-button" class="btn btn-primary" style="width: 100%; margin-top: 35px;">Predict</button>
+            <div id="after-predict" class="after-predict" style="display: none;">
+                 <p style="margin-right: 20px; margin-top: 5px;">This is your number?</p>
+                 <div class="options">
+                     <button data-toggle="modal" data-target="#exampleModal" id="predicted-true" class="btn btn-primary">Yes</button>
+                     <button id="predicted-false" class="btn btn-secondary">No</button>
+                 </div>
+            </div>
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Do you agree?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-agree">Do you want to save you example as training or test image?</p>
+                    <p id="after-save" style="color: green; display: none">Thank's for your time!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close-modal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-image">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

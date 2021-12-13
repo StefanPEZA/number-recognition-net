@@ -1,5 +1,5 @@
-Å
-hD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
+Ì
+oD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
 	namespace		 	
 
 Repository		
@@ -56,8 +56,8 @@ DatasetMap0 :
 ;. /
 } 	
 } 
-} ‹
-‚D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
+} ’
+‰D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
 	namespace 	
 
 Repository
@@ -223,8 +223,8 @@ PrimaryKey $
 ;  !
 } 	
 } 
-} ñ
-~D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
+} ù
+…D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
 	namespace 	
 
 Repository
@@ -350,9 +350,9 @@ oldClrType 
 ;" #
 } 	
 } 
-} ð
+} ÷
 
-jD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
+qD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
 	namespace 	
 
 Repository
@@ -481,8 +481,8 @@ BaseEntity, 6
 )! "
 ;" #
 } 
-} Ú(
-iD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
+} —%
+pD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
 	namespace 	
 
 Repository
@@ -668,141 +668,112 @@ Repository 
 T& '
 entity( .
 ). /
-{   	
-if!! 
-(!! 
-entity!! 
-==!! 
-null!! 
-)!! 
-{"" 
-await## 
-Task## 
-.## 
-Run## 
-(## 
-(##  
-)##  !
-=>##" $
-throw##% *
-new##+ .!
-ArgumentNullException##/ D
-(##D E
-$str##E M
-)##M N
-)##N O
-;##O P
-}$$ 
-entities%% 
-.%% 
-Add%% 
-(%% 
-entity%% 
-)%%  
-;%%  !
-await&& !
-_applicationDbContext&& '
-.&&' (
-SaveChangesAsync&&( 8
-(&&8 9
-)&&9 :
-;&&: ;
-}'' 	
-public)) 
-async)) 
-Task)) 
-UpdateAsync)) %
-())% &
-T))& '
-entity))( .
-))). /
-{** 	
-if++ 
-(++ 
-entity++ 
-==++ 
-null++ 
-)++ 
-{,, 
-await-- 
-Task-- 
-.-- 
-Run-- 
-(-- 
-(--  
-)--  !
-=>--" $
-throw--% *
-new--+ .!
-ArgumentNullException--/ D
-(--D E
-$str--E M
-)--M N
-)--N O
-;--O P
-}.. 
-entities// 
-.// 
-Update// 
-(// 
-entity// "
-)//" #
-;//# $
-await00 !
-_applicationDbContext00 '
-.00' (
-SaveChangesAsync00( 8
-(008 9
-)009 :
-;00: ;
-}11 	
-public33 
-async33 
-Task33 
-DeleteAsync33 %
-(33% &
-T33& '
-entity33( .
-)33. /
-{44 	
-if55 
-(55 
-entity55 
-==55 
-null55 
-)55 
-{66 
-await77 
-Task77 
-.77 
-Run77 
-(77 
-(77  
-)77  !
-=>77" $
-throw77% *
-new77+ .!
-ArgumentNullException77/ D
-(77D E
-$str77E M
-)77M N
-)77N O
-;77O P
-}88 
-entities99 
-.99 
-Remove99 
-(99 
-entity99 "
-)99" #
-;99# $
-await:: !
-_applicationDbContext:: '
-.::' (
-SaveChangesAsync::( 8
-(::8 9
-)::9 :
-;::: ;
-};; 	
-}<< 
-}== 
+{   	
+CheckForNull!! 
+(!! 
+entity!! 
+)!!  
+;!!  !
+entities"" 
+."" 
+Add"" 
+("" 
+entity"" 
+)""  
+;""  !
+await## !
+_applicationDbContext## '
+.##' (
+SaveChangesAsync##( 8
+(##8 9
+)##9 :
+;##: ;
+}$$ 	
+public&& 
+async&& 
+Task&& 
+UpdateAsync&& %
+(&&% &
+T&&& '
+entity&&( .
+)&&. /
+{'' 	
+CheckForNull(( 
+((( 
+entity(( 
+)((  
+;((  !
+entities)) 
+.)) 
+Update)) 
+()) 
+entity)) "
+)))" #
+;))# $
+await** !
+_applicationDbContext** '
+.**' (
+SaveChangesAsync**( 8
+(**8 9
+)**9 :
+;**: ;
+}++ 	
+public-- 
+async-- 
+Task-- 
+DeleteAsync-- %
+(--% &
+T--& '
+entity--( .
+)--. /
+{.. 	
+CheckForNull// 
+(// 
+entity// 
+)//  
+;//  !
+entities00 
+.00 
+Remove00 
+(00 
+entity00 "
+)00" #
+;00# $
+await11 !
+_applicationDbContext11 '
+.11' (
+SaveChangesAsync11( 8
+(118 9
+)119 :
+;11: ;
+}22 	
+private44 
+static44 
+void44 
+CheckForNull44 (
+(44( )
+T44) *
+entity44+ 1
+)441 2
+{55 	
+if66 
+(66 
+entity66 
+==66 
+null66 
+)66 
+{77 
+throw88 
+new88 !
+ArgumentNullException88 /
+(88/ 0
+nameof880 6
+(886 7
+entity887 =
+)88= >
+)88> ?
+;88? @
+}99 
+}:: 	
+};; 
+}<< 

@@ -1,5 +1,5 @@
-è
-gD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
+ï
+nD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
 	namespace
 
  	
@@ -154,8 +154,8 @@ DatasetMap 
 ;% &
 } 	
 } 
-} º
-aD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
+} Á
+hD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
 	namespace 	
 Domain
  
@@ -178,8 +178,8 @@ BaseEntity 
 ;! "
 }# $
 } 
-}		 ó
-^D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
+}		 Ö
+eD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
 	namespace 	
 Domain
  
@@ -226,8 +226,92 @@ BaseEntity %
 }		( )
 =		* +
 false		, 1
-;		1 2
-}
-
- 
-} 
+;		1 2
+public 
+override 
+bool 
+Equals #
+(# $
+object$ *
+obj+ .
+). /
+{ 	
+if 
+( 
+obj 
+== 
+null 
+|| 
+GetType &
+(& '
+)' (
+!=) +
+obj, /
+./ 0
+GetType0 7
+(7 8
+)8 9
+)9 :
+{ 
+return 
+false 
+; 
+} 
+Dataset 
+other 
+= 
+obj 
+as  "
+Dataset# *
+;* +
+bool 
+equals 
+= 
+ImageMatrix %
+.% &
+SequenceEqual& 3
+(3 4
+other4 9
+.9 :
+ImageMatrix: E
+)E F
+&&G I
+IsTest 
+. 
+Equals 
+( 
+other #
+.# $
+IsTest$ *
+)* +
+&&, .
+Label/ 4
+.4 5
+Equals5 ;
+(; <
+other< A
+.A B
+LabelB G
+)G H
+;H I
+return 
+equals 
+; 
+}   	
+public"" 
+override"" 
+int"" 
+GetHashCode"" '
+(""' (
+)""( )
+{## 	
+return$$ 
+Id$$ 
+.$$ 
+GetHashCode$$ !
+($$! "
+)$$" #
+;$$# $
+}%% 	
+}&& 
+}'' 

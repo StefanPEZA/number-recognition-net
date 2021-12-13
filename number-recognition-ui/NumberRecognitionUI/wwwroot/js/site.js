@@ -4,11 +4,16 @@
 // Write your JavaScript code.
 
 
+var azureHost = "https://numberrecognitionapi.azurewebsites.net"
+var localHost = "https://localhost:5001"
+host = localHost
+
 window.addEventListener("load", () => {
 
     const canvas = document.querySelector("#canvas");
     const context = canvas.getContext("2d");
 
+    var processed_image;
     const predicted_canvas = document.querySelector("#predicted-canvas");
     const context_predicted = predicted_canvas.getContext("2d");
 
@@ -99,17 +104,15 @@ window.addEventListener("load", () => {
         return new Blob([arrayBuffer], { type: mimeString });
     }
 
-    // fac intai ajax la crop, transform sirul de bytes primit in imagine pe care dupa o trimit cropata la resize
 
     $('#predict-button').on('click', function () {
-
         var imgInfo = canvas.toDataURL("image/png");
         var blobImage = dataURItoBlob(imgInfo);
         var dataForm = new FormData();
         dataForm.append("image", blobImage)
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/crop',
+            url: host + '/api/v1/image/crop',
             data: dataForm,
             processData: false,
             contentType: false,
@@ -122,7 +125,8 @@ window.addEventListener("load", () => {
     });
 
 
-    function HandleResizeAfterCrop(response) {
+    async function HandleResizeAfterCrop(response) {
+
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
 
@@ -130,7 +134,7 @@ window.addEventListener("load", () => {
         dataForm.append("image", blobImageSecond);
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
+            url: host + '/api/v1/image/resize?width=28&height=28',
             type: "POST",
             data: dataForm,
             processData: false,
@@ -144,6 +148,7 @@ window.addEventListener("load", () => {
                 context_predicted.drawImage(img, 0, 0, size.width, size.height);
             }
             img.src = "data:image/png;base64," + response.processed_image;
+            processed_image = response.processed_image;
             HandlePredict(response)
         }).fail(function (error) {
             alert("not ok");
@@ -151,7 +156,9 @@ window.addEventListener("load", () => {
     }
 
 
-    function HandlePredict(response) {
+    async function HandlePredict(response) {
+        $('#predict-button').css("display", "none");
+        $('#after-predict').css("display", "flex");
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
 
@@ -159,7 +166,7 @@ window.addEventListener("load", () => {
         dataForm.append("image", blobImageSecond);
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/predict',
+            url: host + '/api/v1/image/predict',
             type: "POST",
             data: dataForm,
             processData: false,
@@ -171,4 +178,62 @@ window.addEventListener("load", () => {
             alert("not ok");
         });
     }
+
+    $('#predicted-false').on('click', function () {
+        location.reload();
+    });
+
+    $('#close-modal').on('click', function () {
+        location.reload();
+
+    })
+
+    async function AddToTrainDataset(dataForm, predicted_label) {
+        $.ajax({
+
+            url: host + '/api/v1/dataset/train/' + predicted_label,
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).fail(function (reponse) {
+            alert('Something wrong');
+        });
+    }
+
+    async function AddToTestDataset(dataForm, predicted_label) {
+
+        $.ajax({
+
+            url: host + '/api/v1/dataset/test/' + predicted_label,
+            type: "POST",
+            data: dataForm,
+            processData: false,
+            contentType: false,
+
+        }).done(function (response) {
+
+            $('#save-image').css("display", "none");
+            $('#modal-agree').css("display", "none");
+            $('#after-save').css("display", "block");
+        }).fail(function (reponse) {
+            alert('Something wrong');
+        });
+    }
+
+    $('#save-image').on('click', function () {
+
+        var url = "data:image/png;base64," + processed_image;
+        var blobImageSecond = dataURItoBlob(url);
+
+        var dataForm = new FormData();
+        dataForm.append("image", blobImageSecond);
+
+        predicted_label = $('#predict').val();
+
+        AddToTrainDataset(dataForm, predicted_label);
+        AddToTestDataset(dataForm, predicted_label);
+
+    });
 });

@@ -1,25 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
+//using System.Drawing;
+//using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Drawing.Processing;
 namespace Services.ImageService
 {
     class ImageProcessor
     {
-        private readonly Bitmap image;
+        private readonly Image<Rgba32> image;
         private string ImageMatrix { get; set; }
 
         public ImageProcessor(byte[] source)
         {
-            MemoryStream ms = new MemoryStream(source);
-            image = new Bitmap(ms);
+            image = Image.Load<Rgba32>(source);
         }
 
-        private Task<int[,]> GetPixelMatrixFromBitmap()
+        private Task<int[,]> GetPixelMatrixFromImage()
         {
             int[,] result = new int[image.Height, image.Width];
             StringBuilder lines = new StringBuilder();
@@ -28,8 +30,9 @@ namespace Services.ImageService
                 lines.Append('[');
                 for (int j = 0; j < image.Width; j++)
                 {
-                    Color pixel = image.GetPixel(j, i);
-                    if (pixel.R == 0 || pixel.G == 0 || pixel.B == 0)
+                    
+                    Rgba32 pixel = image[j, i];
+                    if (pixel.R <= 45 || pixel.G <= 45 || pixel.B <= 45)
                     {
                         result[i, j] = pixel.A;
                         lines.Append(pixel.A.ToString() + ",");
@@ -48,45 +51,43 @@ namespace Services.ImageService
             return Task.FromResult(result);
         }
 
-        private Bitmap FillToAspectRatio(int width, int height)
+        private Image<Rgba32> FillToAspectRatio(int width, int height)
         {
             double ratioH = Math.Max((double)width / image.Width, (double)image.Width / width);
             double ratioW = Math.Max((double)height / image.Height, (double)image.Height / height);
             Size newSize = new Size((int)(width * ratioW) + (image.Width / 2), (int)(height * ratioH) + (image.Height / 2));
-            Bitmap newImage = new Bitmap(newSize.Width, newSize.Height);
-            using (Graphics g = Graphics.FromImage(newImage))
+            Image<Rgba32> newImage = new Image<Rgba32>(newSize.Width, newSize.Height);
+            
+            newImage.Mutate(ic =>
             {
-                g.FillRectangle(Brushes.White, 0, 0, newSize.Width, newSize.Height);
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                g.DrawImage(image, (newSize.Width / 2) - (image.Width / 2), (newSize.Height / 2) - (image.Height / 2), image.Width, image.Height);
-            }
+                ic.Fill(Color.White, new RectangleF(0, 0, newSize.Width, newSize.Height));
+                ic.DrawImage(image, new Point((newSize.Width / 2) - (image.Width / 2), (newSize.Height / 2) - (image.Height / 2)), 1);
+            });
+
             return newImage;
         }
 
         public async Task<byte[]> Resize(int width, int height)
         {
-            Bitmap newImage = await Task.Run(() => FillToAspectRatio(width, height));
-            Bitmap result = new Bitmap(width, height);
-            using (Graphics g = Graphics.FromImage(result))
+            Image<Rgba32> newImage = await Task.Run(() => FillToAspectRatio(width, height));
+            newImage.Mutate(ic =>
             {
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                g.DrawImage(newImage, 0, 0, width, height);
-            }
-
+                ic.Resize(width, height);
+            });
+            
             var stream = new MemoryStream();
-            result.Save(stream, ImageFormat.Png);
+            newImage.SaveAsPng(stream);
 
             newImage.Dispose();
-            result.Dispose();
-
-            //result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
+            
+            //result.SaveAsPng("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png");
             return stream.ToArray();
         }
 
 
         public async Task<byte[]> Crop()
         {
-            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromBitmap);
+            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromImage);
 
             int minW = image.Width;
             int maxW = 0;
@@ -111,10 +112,8 @@ namespace Services.ImageService
 
             int widthBlackSpaces = maxW - minW + 1;
             int heightBlackSpaces = maxH - minH + 1;
-            // int widthWhiteSpaces = image.Width - widthBlackSpaces;
-            // int heightWhiteSpaces = image.Width - widthBlackSpaces;
 
-            Bitmap result = new Bitmap(widthBlackSpaces, heightBlackSpaces);
+            Image<Rgba32> result = new Image<Rgba32>(widthBlackSpaces, heightBlackSpaces);
 
             int[,] resultMatrix = new int[heightBlackSpaces, widthBlackSpaces];
 
@@ -125,37 +124,37 @@ namespace Services.ImageService
                     resultMatrix[i, j] = imageMatrix[minH + i, minW + j];
                     if (resultMatrix[i, j] == 0)
                     {
-                        result.SetPixel(j, i, Color.FromArgb(255, 255, 255));
+                        result[j,i] = Color.FromRgb(255, 255, 255);
                     }
                     else
                     {
-                        result.SetPixel(j, i, Color.FromArgb(resultMatrix[i, j], 0, 0, 0));
+                        result[j, i] = Color.FromRgba(0, 0, 0, Convert.ToByte(resultMatrix[i, j]));
                     }
                 }
             }
 
-            //result.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png", ImageFormat.Png);
+            //result.SaveAsPng("C:\\Users\\gigib\\OneDrive\\Desktop\\img.png");
 
             var stream = new MemoryStream();
-            result.Save(stream, ImageFormat.Png);
+            result.SaveAsPng(stream);
 
             result.Dispose();
             return stream.ToArray();
         }
 
-        private Bitmap BitmapCreator(int splitIndex, int lastSplit, int[,] imageMatrix)
+        private Image<Rgba32> ImageCreator(int splitIndex, int lastSplit, int[,] imageMatrix)
         {
-            Bitmap temp = new Bitmap(splitIndex - lastSplit, image.Height);
+            Image<Rgba32> temp = new Image<Rgba32>(splitIndex - lastSplit, image.Height);
             for (int j = 0; j < image.Height; j++)
                 for (int i = lastSplit; i < splitIndex; i++)
                 {
                     if (imageMatrix[j, i] == 0)
                     {
-                        temp.SetPixel(i - lastSplit, j, Color.FromArgb(255, 255, 255));
+                        temp[i - lastSplit, j] = Color.FromRgb(255, 255, 255);
                     }
                     else
                     {
-                        temp.SetPixel(i - lastSplit, j, Color.FromArgb(imageMatrix[j, i], 0, 0, 0));
+                        temp[i - lastSplit, j] = Color.FromRgba(0, 0, 0, Convert.ToByte(imageMatrix[j, i]));
                     }
                 }
             return temp;
@@ -164,7 +163,7 @@ namespace Services.ImageService
         public async Task<List<byte[]>> Split()
         {
             List<byte[]> result = new List<byte[]>();
-            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromBitmap);
+            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromImage);
             int lastNotBank = -1;
             List<int> splitList = new List<int>();
 
@@ -185,15 +184,14 @@ namespace Services.ImageService
             }
 
             int lastSplit = 0;
-            //splitList.Remove(splitList[splitList.Count - 1]);
 
             foreach (int splitIndex in splitList)
             {
-                Bitmap temp = BitmapCreator(splitIndex, lastSplit, imageMatrix);
+                Image<Rgba32> temp = ImageCreator(splitIndex, lastSplit, imageMatrix);
                 lastSplit = splitIndex;
-                //temp.Save("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k + ".png", ImageFormat.Png);
+                // temp.SaveAsPng("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k ".png");
                 var stream = new MemoryStream();
-                temp.Save(stream, ImageFormat.Png);
+                temp.SaveAsPng(stream);
                 temp.Dispose();
                 result.Add(stream.ToArray());
 

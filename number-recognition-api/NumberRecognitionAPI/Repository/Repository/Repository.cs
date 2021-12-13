@@ -30,32 +30,31 @@ namespace Repository.Repository
 
         public async Task InsertAsync(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
+            CheckForNull(entity);
             entities.Add(entity);
             await _applicationDbContext.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
+            CheckForNull(entity);
             entities.Update(entity);
             await _applicationDbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(T entity)
         {
+            CheckForNull(entity);
+            entities.Remove(entity);
+            await _applicationDbContext.SaveChangesAsync();
+        }
+
+        private static void CheckForNull(T entity)
+        {
             if (entity == null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-            entities.Remove(entity);
-            await _applicationDbContext.SaveChangesAsync();
         }
     }
 }
