@@ -1,0 +1,13 @@
+﻿D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\DatasetController.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Startup.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Utils\Shared.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\NumberRecognitionAPI.AssemblyInfo.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\NumberRecognitionAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\appsettings.Development.json
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\appsettings.json
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\num_recog.db
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Properties\launchSettings.json
+D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.editorconfig

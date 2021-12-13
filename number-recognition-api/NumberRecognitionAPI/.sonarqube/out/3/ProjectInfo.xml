@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <ProjectName>NumberRecognitionAPI</ProjectName>
+  <ProjectName>ServicesTests</ProjectName>
   <ProjectLanguage>C#</ProjectLanguage>
-  <ProjectType>Product</ProjectType>
-  <ProjectGuid>f7dc40aa-683d-4f54-b1a7-a88420fa7675</ProjectGuid>
-  <FullPath>D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\NumberRecognitionAPI.csproj</FullPath>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>d356d438-5933-48a7-9b05-cb2636680b81</ProjectGuid>
+  <FullPath>D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\ServicesTests\ServicesTests.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
     <AnalysisResult Id="FilesToAnalyze" Location="D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\3\FilesToAnalyze.txt" />
