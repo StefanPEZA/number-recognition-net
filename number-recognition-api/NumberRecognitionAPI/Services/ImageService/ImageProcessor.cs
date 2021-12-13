@@ -202,6 +202,17 @@ namespace Services.ImageService
             return result;
         }
 
+        public async Task<IEnumerable<float>> GetFlattenedMatrix()
+        {
+            List<float> result = new List<float>();
+            int[,] pixelMatrix = await Task.Run(GetPixelMatrixFromImage);
+            foreach(int x in pixelMatrix)
+            {
+                result.Add(x);
+            }
+            return result;
+        }
+
 
         public override string ToString()
         {

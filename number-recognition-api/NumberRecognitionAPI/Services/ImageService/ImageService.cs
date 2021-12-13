@@ -1,4 +1,5 @@
-﻿
+﻿using NumberRecognitionML;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -20,6 +21,11 @@ namespace Services.ImageService
         public async Task<List<byte[]>> Split(byte[] source)
         {
             return await new ImageProcessor(source).Split();
+        }
+
+        public async Task<float>Predict(byte[] source)
+        {
+            return new NumberRecognition().Predict(await new ImageProcessor(source).GetFlattenedMatrix());
         }
     }
 }

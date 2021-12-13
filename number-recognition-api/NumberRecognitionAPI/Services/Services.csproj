@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <PackageReference Include="Microsoft.ML" Version="1.7.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13" />
+>>>>>>> Stashed changes
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
