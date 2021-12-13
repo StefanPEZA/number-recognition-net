@@ -4,6 +4,10 @@
 // Write your JavaScript code.
 
 
+var azureHost = "https://numberrecognitionapi.azurewebsites.net"
+var localHost = "https://localhost:5001"
+host = localHost
+
 window.addEventListener("load", () => {
 
     const canvas = document.querySelector("#canvas");
@@ -102,29 +106,26 @@ window.addEventListener("load", () => {
 
 
     $('#predict-button').on('click', function () {
-
-
         var imgInfo = canvas.toDataURL("image/png");
         var blobImage = dataURItoBlob(imgInfo);
         var dataForm = new FormData();
         dataForm.append("image", blobImage)
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/crop',
+            url: host + '/api/v1/image/crop',
             data: dataForm,
             processData: false,
             contentType: false,
             type: "POST",
 
         }).done(HandleResizeAfterCrop).fail(function (error) {
-            
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
         });
     });
 
 
-    function HandleResizeAfterCrop(response) {
+    async function HandleResizeAfterCrop(response) {
 
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
@@ -133,15 +134,13 @@ window.addEventListener("load", () => {
         dataForm.append("image", blobImageSecond);
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/resize?width=28&height=28',
+            url: host + '/api/v1/image/resize?width=28&height=28',
             type: "POST",
             data: dataForm,
             processData: false,
             contentType: false,
 
         }).done(function (response) {
-
-    
             var img = new Image();
             img.onload = function () {
                 let size = calculateAspectRatioFit(img.width, img.height, 280)
@@ -157,8 +156,7 @@ window.addEventListener("load", () => {
     }
 
 
-    function HandlePredict(response) {
-
+    async function HandlePredict(response) {
         $('#predict-button').css("display", "none");
         $('#after-predict').css("display", "flex");
         var url = "data:image/png;base64," + response.processed_image;
@@ -168,7 +166,7 @@ window.addEventListener("load", () => {
         dataForm.append("image", blobImageSecond);
 
         $.ajax({
-            url: 'https://localhost:5001/api/v1/image/predict',
+            url: host + '/api/v1/image/predict',
             type: "POST",
             data: dataForm,
             processData: false,
@@ -190,10 +188,10 @@ window.addEventListener("load", () => {
 
     })
 
-    function AddToTrainDataset(dataForm, predicted_label) {
+    async function AddToTrainDataset(dataForm, predicted_label) {
         $.ajax({
 
-            url: 'https://localhost:5001/api/v1/dataset/train/' + predicted_label,
+            url: host + '/api/v1/dataset/train/' + predicted_label,
             type: "POST",
             data: dataForm,
             processData: false,
@@ -204,11 +202,11 @@ window.addEventListener("load", () => {
         });
     }
 
-    function AddToTestDataset(dataForm, predicted_label) {
+    async function AddToTestDataset(dataForm, predicted_label) {
 
         $.ajax({
 
-            url: 'https://localhost:5001/api/v1/dataset/test/' + predicted_label,
+            url: host + '/api/v1/dataset/test/' + predicted_label,
             type: "POST",
             data: dataForm,
             processData: false,
