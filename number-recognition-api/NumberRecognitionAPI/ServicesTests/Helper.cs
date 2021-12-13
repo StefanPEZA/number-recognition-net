@@ -25,7 +25,7 @@ namespace ServicesTests
             return services.BuildServiceProvider();
         }
 
-        public static T GetRequiredService<T>()
+        public static T GetRequiredService<T>() where T : notnull
         {
             var provider = Provider();
 
