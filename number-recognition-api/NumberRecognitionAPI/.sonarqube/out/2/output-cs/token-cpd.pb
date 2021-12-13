@@ -1,5 +1,5 @@
-∏+
-oD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\DatasetService.cs
+ê/
+vD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\DatasetService.cs
 	namespace 	
 Services
  
@@ -193,12 +193,15 @@ repository $
 }## 	
 public%% 
 async%% 
-Task%% 
-InsertIntoDataset%% +
-(%%+ ,
-Dataset%%, 3
-dataset%%4 ;
-)%%; <
+Task%% 
+<%% 
+bool%% 
+>%% 
+InsertIntoDataset%%  1
+(%%1 2
+Dataset%%2 9
+dataset%%: A
+)%%A B
 {&& 	
 try'' 
 {(( 
@@ -209,107 +212,131 @@ repository $
 ())- .
 dataset)). 5
 )))5 6
-;))6 7
-}** 
-catch++ 
-(++ 
-	Exception++ 
-ex++ 
-)++  
-{,, 
-Console-- 
-.-- 
-	WriteLine-- !
-(--! "
-ex--" $
-)--$ %
-;--% &
-}.. 
-}// 	
-public11 
-async11 
-Task11 
-UpdateDataset11 '
-(11' (
-Dataset11( /
-dataset110 7
-)117 8
-{22 	
-try33 
-{44 
-await55 
-_repository55 !
-.55! "
-UpdateAsync55" -
-(55- .
-dataset55. 5
-)555 6
-;556 7
-}66 
-catch77 
-(77 
-	Exception77 
-ex77 
-)77  
-{88 
-Console99 
-.99 
-	WriteLine99 !
-(99! "
-ex99" $
-)99$ %
-;99% &
-}:: 
-};; 	
-public== 
-async== 
-Task== "
-DeleteFromDatasetAsync== 0
-(==0 1
-Guid==1 5
-id==6 8
-)==8 9
-{>> 	
-try?? 
-{@@ 
-DatasetAA 
-datasetAA 
-=AA  !
-awaitAA" '
-_repositoryAA( 3
-.AA3 4
-GetByIdAsyncAA4 @
-(AA@ A
-idAAA C
-)AAC D
-;AAD E
-awaitBB 
-_repositoryBB !
-.BB! "
-DeleteAsyncBB" -
-(BB- .
-datasetBB. 5
-)BB5 6
-;BB6 7
-}CC 
-catchDD 
-(DD 
-	ExceptionDD 
-exDD 
-)DD  
-{EE 
-ConsoleFF 
-.FF 
-	WriteLineFF !
-(FF! "
-exFF" $
-)FF$ %
-;FF% &
-}GG 
-}HH 	
-}II 
-}JJ ﬂ
-pD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\IDatasetService.cs
+;))6 7
+return** 
+true** 
+;** 
+}++ 
+catch,, 
+(,, 
+	Exception,, 
+ex,, 
+),,  
+{-- 
+Console.. 
+... 
+	WriteLine.. !
+(..! "
+ex.." $
+)..$ %
+;..% &
+return// 
+false// 
+;// 
+}00 
+}11 	
+public33 
+async33 
+Task33 
+<33 
+bool33 
+>33 
+UpdateDataset33  -
+(33- .
+Dataset33. 5
+dataset336 =
+)33= >
+{44 	
+try55 
+{66 
+await77 
+_repository77 !
+.77! "
+UpdateAsync77" -
+(77- .
+dataset77. 5
+)775 6
+;776 7
+return88 
+true88 
+;88 
+}99 
+catch:: 
+(:: 
+	Exception:: 
+ex:: 
+)::  
+{;; 
+Console<< 
+.<< 
+	WriteLine<< !
+(<<! "
+ex<<" $
+)<<$ %
+;<<% &
+return== 
+false== 
+;== 
+}>> 
+}?? 	
+publicAA 
+asyncAA 
+TaskAA 
+<AA 
+boolAA 
+>AA "
+DeleteFromDatasetAsyncAA  6
+(AA6 7
+GuidAA7 ;
+idAA< >
+)AA> ?
+{BB 	
+tryCC 
+{DD 
+DatasetEE 
+datasetEE 
+=EE  !
+awaitEE" '
+_repositoryEE( 3
+.EE3 4
+GetByIdAsyncEE4 @
+(EE@ A
+idEEA C
+)EEC D
+;EED E
+awaitFF 
+_repositoryFF !
+.FF! "
+DeleteAsyncFF" -
+(FF- .
+datasetFF. 5
+)FF5 6
+;FF6 7
+returnGG 
+trueGG 
+;GG 
+}HH 
+catchII 
+(II 
+	ExceptionII 
+exII 
+)II  
+{JJ 
+ConsoleKK 
+.KK 
+	WriteLineKK !
+(KK! "
+exKK" $
+)KK$ %
+;KK% &
+returnLL 
+falseLL 
+;LL 
+}MM 
+}NN 	
+}OO 
+}PP ˆ
+wD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\IDatasetService.cs
 	namespace 	
 Services
  
@@ -421,30 +448,39 @@ pD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\
 id+ -
 )- .
 ;. /
-Task 
-InsertIntoDataset 
-( 
-Dataset &
-dataset' .
-). /
-;/ 0
-Task 
-UpdateDataset 
-( 
-Dataset "
-dataset# *
-)* +
-;+ ,
-Task "
-DeleteFromDatasetAsync #
-(# $
-Guid$ (
-id) +
-)+ ,
-;, -
+Task 
+< 
+bool 
+> 
+InsertIntoDataset $
+($ %
+Dataset% ,
+dataset- 4
+)4 5
+;5 6
+Task 
+< 
+bool 
+> 
+UpdateDataset  
+(  !
+Dataset! (
+dataset) 0
+)0 1
+;1 2
+Task 
+< 
+bool 
+> "
+DeleteFromDatasetAsync )
+() *
+Guid* .
+id/ 1
+)1 2
+;2 3
 } 
-} É	
-lD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\IImageService.cs
+} ä	
+sD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\IImageService.cs
 	namespace 	
 Services
  
@@ -542,8 +578,8 @@ lD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\
 
 / 0
 } 
-} ≠∂
-mD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
+} ¥∂
+tD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
 	namespace		 	
 Services		
  
@@ -2327,8 +2363,8 @@ splitIndex
 —— 	
 }
 ““ 
-}”” ˛
-kD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageService.cs
+}”” Ö
+rD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageService.cs
 	namespace 	
 Services
  

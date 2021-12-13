@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SonarProjectConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/analyzer/2021/1">
   <AnalysisConfigPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\SonarQubeAnalysisConfig.xml</AnalysisConfigPath>
-  <ProjectPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Domain.csproj</ProjectPath>
-  <FilesToAnalyzePath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\0\FilesToAnalyze.txt</FilesToAnalyzePath>
-  <OutPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\0</OutPath>
+  <ProjectPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\NumberRecognitionAPI.csproj</ProjectPath>
+  <FilesToAnalyzePath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\conf\4\FilesToAnalyze.txt</FilesToAnalyzePath>
+  <OutPath>D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\4</OutPath>
   <ProjectType>Product</ProjectType>
   <TargetFramework>net5.0</TargetFramework>
 </SonarProjectConfig>
