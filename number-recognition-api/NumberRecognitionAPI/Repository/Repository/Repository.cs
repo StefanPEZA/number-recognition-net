@@ -28,32 +28,30 @@ namespace Repository.Repository
             return await entities.SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task InsertAsync(T entity)
+        private static void parameter_check(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
+        }
+        public async Task InsertAsync(T entity)
+        {
+            parameter_check(entity);
             entities.Add(entity);
             await _applicationDbContext.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
+            parameter_check(entity);
             entities.Update(entity);
             await _applicationDbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
+            parameter_check(entity);
             entities.Remove(entity);
             await _applicationDbContext.SaveChangesAsync();
         }

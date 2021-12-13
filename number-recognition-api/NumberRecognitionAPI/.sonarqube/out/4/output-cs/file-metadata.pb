@@ -1,0 +1,9 @@
+á
+~D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\DatasetController.csutf-8Ö
+|D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.csutf-8n
+eD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.csutf-8n
+eD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Startup.csutf-8s
+jD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Utils\Shared.csutf-8¶
+öD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.csutf-8ú
+êD:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\NumberRecognitionAPI.AssemblyInfo.csutf-8Ø
+£D:\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\obj\Debug\net5.0\NumberRecognitionAPI.MvcApplicationPartsAssemblyInfo.csutf-8
