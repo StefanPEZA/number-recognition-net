@@ -11,44 +11,7 @@
         "language": "en-US"
       },
       "results": [
-        {
-          "ruleId": "CS8714",
-          "level": "warning",
-          "message": "The type 'T' cannot be used as type parameter 'T' in the generic type or method 'ServiceProviderServiceExtensions.GetRequiredService<T>(IServiceProvider)'. Nullability of type argument 'T' doesn't match 'notnull' constraint.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/ServicesTests/Helper.cs",
-                "region": {
-                  "startLine": 32,
-                  "startColumn": 20,
-                  "endLine": 32,
-                  "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        }
-      ],
-      "rules": {
-        "CS8714": {
-          "id": "CS8714",
-          "shortDescription": "The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'notnull' constraint.",
-          "defaultLevel": "warning",
-          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8714)",
-          "properties": {
-            "category": "Compiler",
-            "isEnabledByDefault": true,
-            "tags": [
-              "Compiler",
-              "Telemetry"
-            ]
-          }
-        }
-      }
+      ]
     }
   ]
 }
