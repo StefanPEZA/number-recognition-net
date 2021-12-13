@@ -46,7 +46,7 @@ namespace NumberRecognitionML
     public class NumberRecognition
     {
         private static bool HasHeaders = true;
-        public void Train(string dataPath, string modelPath)
+        public void Train(string dataPath, string modelPath,string testPath)
         {
             // create a machine learning context
             var context = new MLContext();
@@ -62,9 +62,17 @@ namespace NumberRecognitionML
                 },
                 hasHeader: HasHeaders,
                 separatorChar: ',');
+            var testSet = context.Data.LoadFromTextFile(
+                path: testPath,
+                columns: new[]
+                {
+                    new TextLoader.Column("Number", DataKind.Single, 0),
+                    new TextLoader.Column(nameof(Digit.PixelValues), DataKind.Single, 1, 784)
+                },
+                hasHeader: HasHeaders,
+                separatorChar: ',');
 
             // split data into a training and test set
-            var partitions = context.Data.TrainTestSplit(dataView, testFraction: 0.2);
 
             // build a training pipeline
             // step 1: concatenate all feature columns
@@ -86,12 +94,12 @@ namespace NumberRecognitionML
 
             // train the model
             Trace.WriteLine("Training model....");
-            var model = pipeline.Fit(partitions.TrainSet);
+            var model = pipeline.Fit(dataView);
 
 
             // use the model to make predictions on the test data
             Trace.WriteLine("Evaluating model....");
-            var predictions = model.Transform(partitions.TestSet);
+            var predictions = model.Transform(testSet);
 
             // evaluate the predictions
             var metrics = context.MulticlassClassification.Evaluate(
@@ -111,28 +119,6 @@ namespace NumberRecognitionML
             Trace.WriteLine($"Model {modelPath} saved.");
 
             _predictionEngine = context.Model.CreatePredictionEngine<Digit, DigitPrediction>(model);
-
-            //// grab three digits from the data: 2, 7, and 9
-            //var digits = context.Data.CreateEnumerable<Digit>(dataView, reuseRowObject: false).ToArray();
-            //var testDigits = new Digit[] { digits[5], digits[12], digits[20] };
-
-            //// create a prediction engine
-            //var engine = context.Model.CreatePredictionEngine<Digit, DigitPrediction>(model);
-            ////var engine = model.CreatePredictionEngine<Digit, DigitPrediction>(context);
-
-            //// predict each test digit
-            //for (var i = 0; i < testDigits.Length; i++)
-            //{
-            //    var prediction = engine.Predict(testDigits[i]);
-
-            //    // show results
-            //    Console.WriteLine($"Predicting test digit {i}...");
-            //    for (var j = 0; j < 10; j++)
-            //    {
-            //        Console.WriteLine($"  {j}: {prediction.Score[j]:P2}");
-            //    }
-            //    Console.WriteLine();
-            //}
         }
 
         private PredictionEngine<Digit, DigitPrediction> _predictionEngine;
@@ -168,7 +154,7 @@ namespace NumberRecognitionML
                 if (digit.PixelValues[i] > 1f)
                     digit.PixelValues[i] = 1f;
             }
-            //Train(@"C:\Users\ghiuz\OneDrive\Desktop\tempFile.csv", @"C:\Users\ghiuz\OneDrive\Desktop\model");
+            //Train(@"C:\Users\ghiuz\OneDrive\Desktop\tempFile.csv", @"C:\Users\ghiuz\OneDrive\Desktop\model", @"C:\Users\ghiuz\OneDrive\Desktop\tempFileTest.csv");
             LoadModel(@"C:\Users\ghiuz\OneDrive\Desktop\model");
             var predictionResult = PredictDigit(digit);
             return predictionResult.PredictedNumber;
