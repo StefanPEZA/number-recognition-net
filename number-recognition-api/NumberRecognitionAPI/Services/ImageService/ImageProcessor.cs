@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Drawing;
-//using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +9,7 @@ using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Drawing.Processing;
 namespace Services.ImageService
 {
-    class ImageProcessor
+    public class ImageProcessor
     {
         private readonly Image<Rgba32> image;
         private string ImageMatrix { get; set; }
@@ -80,7 +78,6 @@ namespace Services.ImageService
 
             newImage.Dispose();
             
-            //result.SaveAsPng("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png");
             return stream.ToArray();
         }
 
@@ -132,8 +129,6 @@ namespace Services.ImageService
                     }
                 }
             }
-
-            //result.SaveAsPng("C:\\Users\\gigib\\OneDrive\\Desktop\\img.png");
 
             var stream = new MemoryStream();
             result.SaveAsPng(stream);
@@ -197,6 +192,17 @@ namespace Services.ImageService
 
             }
 
+            return result;
+        }
+
+        public async Task<IEnumerable<float>> GetFlattenedMatrix()
+        {
+            List<float> result = new List<float>();
+            int[,] pixelMatrix = await Task.Run(GetPixelMatrixFromImage);
+            foreach(int x in pixelMatrix)
+            {
+                result.Add(x);
+            }
             return result;
         }
 

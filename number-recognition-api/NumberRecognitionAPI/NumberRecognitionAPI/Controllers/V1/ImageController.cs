@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Services.ImageService;
 using System.Collections.Generic;
 using NumberRecognitionAPI.Utils;
+using System;
 
 namespace NumberRecognitionAPI.Controllers.V1
 {            
@@ -35,13 +36,15 @@ namespace NumberRecognitionAPI.Controllers.V1
 
             byte[] image_bytes = await Shared.IFormFileToByteArray(image);
 
+            float prediction = await _imageService.Predict(image_bytes);
+
             response = new
             {
                 status = "OK",
                 image_length = image.Length,
                 file_name = image.FileName,
                 file_type = image.ContentType,
-                predicted_label = "0",
+                predicted_label = prediction.ToString(),
             };
             return Ok(response);
         }

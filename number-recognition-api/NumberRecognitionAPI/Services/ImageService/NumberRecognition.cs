@@ -1,0 +1,163 @@
+﻿/*using NumberRecognitionAPIML.Model;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+
+namespace NumberRecognitionAPIML.ConsoleApp
+{
+    public class NumberRecognition
+    {
+        
+    }
+}
+*/
+using Microsoft.ML;
+using Microsoft.ML.Data;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Packaging;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NumberRecognitionML
+{
+    /// <summary>
+    /// The Digit class represents one mnist digit.
+    /// </summary>
+    public class Digit
+    {
+        public float Number;
+        [VectorType(784)] public float[] PixelValues;
+    }
+
+    /// <summary>
+    /// The DigitPrediction class represents one digit prediction.
+    /// </summary>
+    public class DigitPrediction
+    {
+        [ColumnName("Score")]
+        public float[] Score;
+        public float PredictedNumber;
+    }
+
+    public class NumberRecognition
+    {
+        private static bool HasHeaders = true;
+        public void Train(string dataPath, string modelPath,string testPath)
+        {
+            // create a machine learning context
+            var context = new MLContext();
+
+            // load data
+            Trace.WriteLine("Loading data....");
+            var dataView = context.Data.LoadFromTextFile(
+                path: dataPath,
+                columns: new[]
+                {
+                    new TextLoader.Column("Number", DataKind.Single, 0),
+                    new TextLoader.Column(nameof(Digit.PixelValues), DataKind.Single, 1, 784)
+                },
+                hasHeader: HasHeaders,
+                separatorChar: ',');
+            var testSet = context.Data.LoadFromTextFile(
+                path: testPath,
+                columns: new[]
+                {
+                    new TextLoader.Column("Number", DataKind.Single, 0),
+                    new TextLoader.Column(nameof(Digit.PixelValues), DataKind.Single, 1, 784)
+                },
+                hasHeader: HasHeaders,
+                separatorChar: ',');
+
+            // split data into a training and test set
+
+            // build a training pipeline
+            // step 1: concatenate all feature columns
+            var pipeline = context.Transforms.Concatenate("Features",
+                //DefaultColumnNames.Features,
+                nameof(Digit.PixelValues))
+
+                .Append(context.Transforms.Conversion.MapValueToKey(inputColumnName: "Number", outputColumnName: "Label"))
+
+                // step 2: cache data to speed up training                
+                .AppendCacheCheckpoint(context)
+
+                // step 3: train the model with SDCA
+                .Append(context.MulticlassClassification.Trainers.SdcaMaximumEntropy(
+                    labelColumnName: "Label",
+                    featureColumnName: "Features"))
+
+                .Append(context.Transforms.Conversion.MapKeyToValue("PredictedNumber", "PredictedLabel"));
+
+            // train the model
+            Trace.WriteLine("Training model....");
+            var model = pipeline.Fit(dataView);
+
+
+            // use the model to make predictions on the test data
+            Trace.WriteLine("Evaluating model....");
+            var predictions = model.Transform(testSet);
+
+            // evaluate the predictions
+            var metrics = context.MulticlassClassification.Evaluate(
+                data: predictions
+                //label: "Number",
+                //score: "Score" /*DefaultColumnNames.Score*/
+                );
+
+            // show evaluation metrics
+            Trace.WriteLine($"Evaluation metrics");
+            Trace.WriteLine($"    MicroAccuracy:    {metrics.MicroAccuracy:0.###}");
+            Trace.WriteLine($"    MacroAccuracy:    {metrics.MacroAccuracy:0.###}");
+            Trace.WriteLine($"    LogLoss:          {metrics.LogLoss:#.###}");
+            Trace.WriteLine($"    LogLossReduction: {metrics.LogLossReduction:#.###}");
+
+            context.Model.Save(model, dataView.Schema, modelPath);
+            Trace.WriteLine($"Model {modelPath} saved.");
+
+            _predictionEngine = context.Model.CreatePredictionEngine<Digit, DigitPrediction>(model);
+        }
+
+        private PredictionEngine<Digit, DigitPrediction> _predictionEngine;
+
+        public void LoadModel(string modelPath)
+        {
+            var context = new MLContext();
+            DataViewSchema schema;
+            var model = context.Model.Load(modelPath, out schema);
+            _predictionEngine = context.Model.CreatePredictionEngine<Digit, DigitPrediction>(model);
+            Trace.WriteLine($"Model {modelPath} loaded.");
+        }
+
+        public DigitPrediction PredictDigit(Digit digit)
+        {
+            try
+            {
+                return _predictionEngine.Predict(digit);
+            }
+            catch (Exception exp)
+            {
+                Trace.WriteLine("Prediction failed. Model loaded?");
+                return null;
+            }
+        }
+
+        public float Predict(IEnumerable<float> attributes)
+        {
+            Digit digit = new Digit();
+            digit.PixelValues = attributes.ToArray();
+            for (int i = 0; i < 784; i++)
+            {
+                if (digit.PixelValues[i] > 1f)
+                    digit.PixelValues[i] = 1f;
+            }
+            //Train(@"C:\Users\ghiuz\OneDrive\Desktop\tempFile.csv", @"C:\Users\ghiuz\OneDrive\Desktop\model", @"C:\Users\ghiuz\OneDrive\Desktop\tempFileTest.csv");
+            LoadModel(@"C:\Users\ghiuz\OneDrive\Desktop\model");
+            var predictionResult = PredictDigit(digit);
+            return predictionResult.PredictedNumber;
+        }
+    }
+}
