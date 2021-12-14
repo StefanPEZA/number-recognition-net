@@ -1,3 +1,0 @@
-﻿D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
-D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs
