@@ -1070,7 +1070,7 @@ BadRequest
 ºº 	
 }
 »» 
-}¼¼ ìD
+}¼¼ ’G
 ƒD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.cs
 	namespace		 	 
 NumberRecognitionAPI		
@@ -1348,225 +1348,240 @@ BadRequest== !
 processed_imageFF 
 =FF  !
 processed_imageFF" 1
-}GG 
-;GG 
-returnHH 
-OkHH 
-(HH 
-responseHH 
-)HH 
-;HH  
-}II 	
-[KK 	
-HttpPostKK	 
-]KK 
-[LL 	
-RouteLL	 
-(LL 
-$strLL 
-)LL 
-]LL 
-publicMM 
-asyncMM 
-TaskMM 
-<MM 
-IActionResultMM '
->MM' (
-	CropImageMM) 2
-(MM2 3
-	IFormFileMM3 <
-imageMM= B
-)MMB C
-{NN 	
-objectOO 
-responseOO 
-;OO 
-boolPP 
-validPP 
-;PP 
-(QQ 
-validQQ 
-,QQ 
-responseQQ 
-)QQ 
-=QQ 
-SharedQQ  &
-.QQ& '
-CheckIfIsValidImageQQ' :
-(QQ: ;
-imageQQ; @
-)QQ@ A
-;QQA B
-ifRR 
-(RR 
-!RR 
-validRR 
-)RR 
-{SS 
-returnTT 
+,FF1 2
+original_imageGG 
+=GG  
+image_bytesGG! ,
+,GG, -
+}HH 
+;HH 
+returnII 
+OkII 
+(II 
+responseII 
+)II 
+;II  
+}JJ 	
+[LL 	
+HttpPostLL	 
+]LL 
+[MM 	
+RouteMM	 
+(MM 
+$strMM 
+)MM 
+]MM 
+publicNN 
+asyncNN 
+TaskNN 
+<NN 
+IActionResultNN '
+>NN' (
+	CropImageNN) 2
+(NN2 3
+	IFormFileNN3 <
+imageNN= B
+)NNB C
+{OO 	
+objectPP 
+responsePP 
+;PP 
+boolQQ 
+validQQ 
+;QQ 
+(RR 
+validRR 
+,RR 
+responseRR 
+)RR 
+=RR 
+SharedRR  &
+.RR& '
+CheckIfIsValidImageRR' :
+(RR: ;
+imageRR; @
+)RR@ A
+;RRA B
+ifSS 
+(SS 
+!SS 
+validSS 
+)SS 
+{TT 
+returnUU 
 
-BadRequestTT !
-(TT! "
-responseTT" *
-)TT* +
-;TT+ ,
-}UU 
-byteWW 
-[WW 
-]WW 
-image_bytesWW 
-=WW  
-awaitWW! &
-SharedWW' -
-.WW- . 
-IFormFileToByteArrayWW. B
-(WWB C
-imageWWC H
-)WWH I
-;WWI J
+BadRequestUU !
+(UU! "
+responseUU" *
+)UU* +
+;UU+ ,
+}VV 
 byteXX 
 [XX 
-]XX 
-processed_imageXX "
-=XX# $
-awaitXX% *
-_imageServiceXX+ 8
-.XX8 9
-CropXX9 =
-(XX= >
-image_bytesXX> I
-)XXI J
-;XXJ K
-responseZZ 
-=ZZ 
-newZZ 
-{[[ 
-status\\ 
-=\\ 
-$str\\ 
-,\\ 
-processed_image]] 
-=]]  !
-processed_image]]" 1
-}^^ 
-;^^ 
-return__ 
-Ok__ 
-(__ 
-response__ 
-)__ 
-;__  
-}`` 	
-[bb 	
-HttpPostbb	 
-]bb 
-[cc 	
-Routecc	 
-(cc 
-$strcc 
-)cc 
-]cc 
-publicdd 
-asyncdd 
-Taskdd 
-<dd 
-IActionResultdd '
->dd' (
+]XX 
+image_bytesXX 
+=XX  
+awaitXX! &
+SharedXX' -
+.XX- . 
+IFormFileToByteArrayXX. B
+(XXB C
+imageXXC H
+)XXH I
+;XXI J
+byteYY 
+[YY 
+]YY 
+processed_imageYY "
+=YY# $
+awaitYY% *
+_imageServiceYY+ 8
+.YY8 9
+CropYY9 =
+(YY= >
+image_bytesYY> I
+)YYI J
+;YYJ K
+response[[ 
+=[[ 
+new[[ 
+{\\ 
+status]] 
+=]] 
+$str]] 
+,]] 
+processed_image^^ 
+=^^  !
+processed_image^^" 1
+,^^1 2
+original_image__ 
+=__  
+image_bytes__! ,
+,__, -
+}`` 
+;`` 
+returnaa 
+Okaa 
+(aa 
+responseaa 
+)aa 
+;aa  
+}bb 	
+[dd 	
+HttpPostdd	 
+]dd 
+[ee 	
+Routeee	 
+(ee 
+$stree 
+)ee 
+]ee 
+publicff 
+asyncff 
+Taskff 
+<ff 
+IActionResultff '
+>ff' (
 
-SplitImagedd) 3
-(dd3 4
-	IFormFiledd4 =
-imagedd> C
-)ddC D
-{ee 	
-objectff 
-responseff 
-;ff 
-boolgg 
-validgg 
-;gg 
-(hh 
-validhh 
-,hh 
-responsehh 
-)hh 
-=hh 
-Sharedhh  &
-.hh& '
-CheckIfIsValidImagehh' :
-(hh: ;
-imagehh; @
-)hh@ A
-;hhA B
-ifii 
-(ii 
-!ii 
+SplitImageff) 3
+(ff3 4
+	IFormFileff4 =
+imageff> C
+)ffC D
+{gg 	
+objecthh 
+responsehh 
+;hh 
+boolii 
 validii 
-)ii 
-{jj 
-returnkk 
+;ii 
+(jj 
+validjj 
+,jj 
+responsejj 
+)jj 
+=jj 
+Sharedjj  &
+.jj& '
+CheckIfIsValidImagejj' :
+(jj: ;
+imagejj; @
+)jj@ A
+;jjA B
+ifkk 
+(kk 
+!kk 
+validkk 
+)kk 
+{ll 
+returnmm 
 
-BadRequestkk !
-(kk! "
-responsekk" *
-)kk* +
-;kk+ ,
-}ll 
-bytenn 
-[nn 
-]nn 
-image_bytesnn 
-=nn  
-awaitnn! &
-Sharednn' -
-.nn- . 
-IFormFileToByteArraynn. B
-(nnB C
-imagennC H
-)nnH I
-;nnI J
-Listoo 
-<oo 
-byteoo 
-[oo 
-]oo 
->oo 
-processed_imageoo (
-=oo) *
-awaitoo+ 0
-_imageServiceoo1 >
-.oo> ?
-Splitoo? D
-(ooD E
-image_bytesooE P
-)ooP Q
-;ooQ R
-responseqq 
-=qq 
-newqq 
-{rr 
-statusss 
-=ss 
-$strss 
-,ss 
-processed_imagett 
-=tt  !
-processed_imagett" 1
-.tt1 2
-ToArraytt2 9
-(tt9 :
-)tt: ;
-}uu 
-;uu 
-returnvv 
-Okvv 
-(vv 
-responsevv 
-)vv 
-;vv  
-}ww 	
-}yy 
-}zz ù
+BadRequestmm !
+(mm! "
+responsemm" *
+)mm* +
+;mm+ ,
+}nn 
+bytepp 
+[pp 
+]pp 
+image_bytespp 
+=pp  
+awaitpp! &
+Sharedpp' -
+.pp- . 
+IFormFileToByteArraypp. B
+(ppB C
+imageppC H
+)ppH I
+;ppI J
+Listqq 
+<qq 
+byteqq 
+[qq 
+]qq 
+>qq 
+processed_imageqq (
+=qq) *
+awaitqq+ 0
+_imageServiceqq1 >
+.qq> ?
+Splitqq? D
+(qqD E
+image_bytesqqE P
+)qqP Q
+;qqQ R
+responsess 
+=ss 
+newss 
+{tt 
+statusuu 
+=uu 
+$struu 
+,uu 
+processed_imagevv 
+=vv  !
+processed_imagevv" 1
+.vv1 2
+ToArrayvv2 9
+(vv9 :
+)vv: ;
+,vv; <
+original_imageww 
+=ww  
+image_bytesww! ,
+,ww, -
+}xx 
+;xx 
+returnyy 
+Okyy 
+(yy 
+responseyy 
+)yy 
+;yy  
+}zz 	
+}|| 
+}}} ù
 lD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.cs
 	namespace
 

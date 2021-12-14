@@ -29,8 +29,8 @@ namespace NumberRecognitionML
     /// </summary>
     public class Digit
     {
-        public float Number;
-        [VectorType(784)] public float[] PixelValues;
+        public float Number { get; set; }
+        [VectorType(784)] public float[] PixelValues { get; set; }
     }
 
     /// <summary>
@@ -39,13 +39,13 @@ namespace NumberRecognitionML
     public class DigitPrediction
     {
         [ColumnName("Score")]
-        public float[] Score;
-        public float PredictedNumber;
+        public float[] Score { get; set; }
+        public float PredictedNumber { get; set; }
     }
 
     public class NumberRecognition
     {
-        private static bool HasHeaders = true;
+        private static bool HasHeaders { get; set; } = true;
         public void Train(string dataPath, string modelPath,string testPath)
         {
             // create a machine learning context
@@ -140,7 +140,7 @@ namespace NumberRecognitionML
             }
             catch (Exception exp)
             {
-                Trace.WriteLine("Prediction failed. Model loaded?");
+                Trace.WriteLine("Prediction failed. Model loaded?" + exp.Message);
                 return null;
             }
         }
