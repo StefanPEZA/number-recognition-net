@@ -2,5 +2,5 @@ projectKey=NumberRecognitionAPI
 serverUrl=http://localhost:9000
 serverVersion=9.2.0.49834
 dashboardUrl=http://localhost:9000/dashboard?id=NumberRecognitionAPI
-ceTaskId=AX23ouOsyKC1DALSHw_5
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX23ouOsyKC1DALSHw_5
+ceTaskId=AX23pvXlyKC1DALSHw_7
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX23pvXlyKC1DALSHw_7

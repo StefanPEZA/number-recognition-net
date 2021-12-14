@@ -12,7 +12,7 @@ namespace Services.ImageService
     class ImageProcessor
     {
         private readonly Image<Rgba32> image;
-        int[,] _imageMatrix;
+        private readonly int[,] _imageMatrix;
 
         public ImageProcessor(byte[] source)
         {

@@ -585,7 +585,7 @@ sD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Se
 )) *
 ;* +
 } 
-} É±
+} ô±
 tD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
 	namespace
 
@@ -612,13 +612,15 @@ tD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Se
 Rgba32 %
 >% &
 image' ,
-;, -
-int 
-[ 
-, 
-] 
-_imageMatrix 
-; 
+;, -
+private 
+readonly 
+int 
+[ 
+, 
+] 
+_imageMatrix  ,
+;, -
 public 
 ImageProcessor 
 ( 
@@ -2579,7 +2581,7 @@ rD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Se
 ;i j
 } 	
 } 
-} ‰`
+} £c
 wD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\NumberRecognition.cs
 	namespace 	
 NumberRecognitionML
@@ -2593,7 +2595,12 @@ wD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Se
 public   
 float   
 Number   
-;   
+{   
+get   !
+;  ! "
+set  # &
+;  & '
+}  ( )
 [!! 	
 
 VectorType!!	 
@@ -2606,7 +2613,12 @@ VectorType!!	 
 [!!& '
 ]!!' (
 PixelValues!!) 4
-;!!4 5
+{!!5 6
+get!!7 :
+;!!: ;
+set!!< ?
+;!!? @
+}!!A B
 }"" 
 public'' 
 
@@ -2625,11 +2637,21 @@ ColumnName))	 
 [** 
 ]** 
 Score** 
-;** 
+{** 
+get** "
+;**" #
+set**$ '
+;**' (
+}**) *
 public++ 
 float++ 
 PredictedNumber++ $
-;++$ %
+{++% &
+get++' *
+;++* +
+set++, /
+;++/ 0
+}++1 2
 },, 
 public.. 
 
@@ -2641,9 +2663,15 @@ ColumnName))	 
 bool00 
 
 HasHeaders00 &
-=00' (
-true00) -
-;00- .
+{00' (
+get00) ,
+;00, -
+set00. 1
+;001 2
+}003 4
+=005 6
+true007 ;
+;00; <
 public11 
 void11 
 Train11 

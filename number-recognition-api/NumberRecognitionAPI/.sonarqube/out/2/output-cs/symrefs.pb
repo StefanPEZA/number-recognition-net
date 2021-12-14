@@ -116,7 +116,7 @@ tD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Se
 ‘‘  %
 ¦¦  %
 ©©$ )@
-  ZZ $zz) 5
+  , ZZ $zz) 5
 ªª $
 ººm y
 
