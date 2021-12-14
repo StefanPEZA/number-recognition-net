@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Services.ImageService;
+using ServicesTests;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,28 +13,47 @@ namespace Services.ImageService.Tests
     [TestClass()]
     public class ImageServiceTests
     {
-        [TestMethod()]
-        public void ResizeTest()
+
+        private readonly IImageService _imageService;
+
+        public ImageServiceTests()
         {
-            Assert.Fail();
+             _imageService = Helper.GetRequiredService<IImageService>() ?? throw new ArgumentNullException(nameof(IImageService));
+        }
+        [TestMethod()]
+        public async Task Resize_ShouldNotReturnNull_WhenWidthAndHeightAre28Async()
+        {
+            FileInfo fileInfo = new FileInfo(@".\..\..\..\resources\nine_uncentered.png");
+            byte[] data = new byte[fileInfo.Length];
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+            }
+            Assert.IsNotNull(await _imageService.Resize(data, 28, 28));
         }
 
         [TestMethod()]
-        public void CropTest()
+        public async Task Crop_ShouldNotReturnNullAsync()
         {
-            Assert.Fail();
+            FileInfo fileInfo = new FileInfo(@".\..\..\..\resources\nine_uncentered.png");
+            byte[] data = new byte[fileInfo.Length];
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+            }
+            Assert.IsNotNull(await _imageService.Crop(data));
         }
 
         [TestMethod()]
-        public void SplitTest()
+        public async Task Split_ShouldNotReturnNullAsync()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void PredictTest()
-        {
-            Assert.Fail();
+            FileInfo fileInfo = new FileInfo(@".\..\..\..\resources\nine_uncentered.png");
+            byte[] data = new byte[fileInfo.Length];
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+            }
+            Assert.IsNotNull(await _imageService.Split(data));
         }
     }
 }

@@ -67,7 +67,8 @@ namespace NumberRecognitionAPI.Controllers.V1
             response = new
             {
                 status = "OK",
-                processed_image = processed_image
+                processed_image = processed_image,
+                original_image = image_bytes,
             };
             return Ok(response);
         }
@@ -90,7 +91,8 @@ namespace NumberRecognitionAPI.Controllers.V1
             response = new
             {
                 status = "OK",
-                processed_image = processed_image
+                processed_image = processed_image,
+                original_image = image_bytes,
             };
             return Ok(response);
         }
@@ -113,7 +115,8 @@ namespace NumberRecognitionAPI.Controllers.V1
             response = new
             {
                 status = "OK",
-                processed_image = processed_image.ToArray()
+                processed_image = processed_image.ToArray(),
+                original_image = image_bytes,
             };
             return Ok(response);
         }
