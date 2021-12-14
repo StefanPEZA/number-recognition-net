@@ -5,9 +5,9 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "4.0.0.0",
-        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
-        "semanticVersion": "4.0.0",
+        "version": "3.11.0.0",
+        "fileVersion": "3.11.0-4.21403.6 (ae1fff34)",
+        "semanticVersion": "3.11.0",
         "language": "en-US"
       },
       "results": [
@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Controllers/V1/ImageController.cs",
                 "region": {
                   "startLine": 36,
                   "startColumn": 20,
@@ -39,7 +39,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Startup.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/NumberRecognitionAPI/Startup.cs",
                 "region": {
                   "startLine": 32,
                   "startColumn": 39,

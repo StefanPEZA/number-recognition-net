@@ -1,5 +1,5 @@
-¾t
-…D:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\DatasetController.cs
+Ìt
+“A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\DatasetController.cs
 	namespace		 	 
 NumberRecognitionAPI		
  
@@ -1070,8 +1070,8 @@ BadRequest
 ºº 	
 }
 »» 
-}¼¼ ÑB
-ƒD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.cs
+}¼¼ …E
+‘A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Controllers\V1\ImageController.cs
 	namespace 	 
 NumberRecognitionAPI
  
@@ -1341,226 +1341,241 @@ BadRequest:: !
 processed_imageCC 
 =CC  !
 processed_imageCC" 1
-}DD 
-;DD 
-returnEE 
-OkEE 
-(EE 
-responseEE 
-)EE 
-;EE  
-}FF 	
-[HH 	
-HttpPostHH	 
-]HH 
-[II 	
-RouteII	 
-(II 
-$strII 
-)II 
-]II 
-publicJJ 
-asyncJJ 
-TaskJJ 
-<JJ 
-IActionResultJJ '
->JJ' (
-	CropImageJJ) 2
-(JJ2 3
-	IFormFileJJ3 <
-imageJJ= B
-)JJB C
-{KK 	
-objectLL 
-responseLL 
-;LL 
-boolMM 
-validMM 
-;MM 
-(NN 
-validNN 
-,NN 
-responseNN 
-)NN 
-=NN 
-SharedNN  &
-.NN& '
-CheckIfIsValidImageNN' :
-(NN: ;
-imageNN; @
-)NN@ A
-;NNA B
-ifOO 
-(OO 
-!OO 
-validOO 
-)OO 
-{PP 
-returnQQ 
+,CC1 2
+original_imageDD 
+=DD  
+image_bytesDD! ,
+,DD, -
+}EE 
+;EE 
+returnFF 
+OkFF 
+(FF 
+responseFF 
+)FF 
+;FF  
+}GG 	
+[II 	
+HttpPostII	 
+]II 
+[JJ 	
+RouteJJ	 
+(JJ 
+$strJJ 
+)JJ 
+]JJ 
+publicKK 
+asyncKK 
+TaskKK 
+<KK 
+IActionResultKK '
+>KK' (
+	CropImageKK) 2
+(KK2 3
+	IFormFileKK3 <
+imageKK= B
+)KKB C
+{LL 	
+objectMM 
+responseMM 
+;MM 
+boolNN 
+validNN 
+;NN 
+(OO 
+validOO 
+,OO 
+responseOO 
+)OO 
+=OO 
+SharedOO  &
+.OO& '
+CheckIfIsValidImageOO' :
+(OO: ;
+imageOO; @
+)OO@ A
+;OOA B
+ifPP 
+(PP 
+!PP 
+validPP 
+)PP 
+{QQ 
+returnRR 
 
-BadRequestQQ !
-(QQ! "
-responseQQ" *
-)QQ* +
-;QQ+ ,
-}RR 
-byteTT 
-[TT 
-]TT 
-image_bytesTT 
-=TT  
-awaitTT! &
-SharedTT' -
-.TT- . 
-IFormFileToByteArrayTT. B
-(TTB C
-imageTTC H
-)TTH I
-;TTI J
+BadRequestRR !
+(RR! "
+responseRR" *
+)RR* +
+;RR+ ,
+}SS 
 byteUU 
 [UU 
-]UU 
-processed_imageUU "
-=UU# $
-awaitUU% *
-_imageServiceUU+ 8
-.UU8 9
-CropUU9 =
-(UU= >
-image_bytesUU> I
-)UUI J
-;UUJ K
-responseWW 
-=WW 
-newWW 
-{XX 
-statusYY 
-=YY 
-$strYY 
-,YY 
-processed_imageZZ 
-=ZZ  !
-processed_imageZZ" 1
-}[[ 
-;[[ 
-return\\ 
-Ok\\ 
-(\\ 
-response\\ 
-)\\ 
-;\\  
-}]] 	
-[__ 	
-HttpPost__	 
-]__ 
-[`` 	
-Route``	 
-(`` 
-$str`` 
-)`` 
-]`` 
-publicaa 
-asyncaa 
-Taskaa 
-<aa 
-IActionResultaa '
->aa' (
+]UU 
+image_bytesUU 
+=UU  
+awaitUU! &
+SharedUU' -
+.UU- . 
+IFormFileToByteArrayUU. B
+(UUB C
+imageUUC H
+)UUH I
+;UUI J
+byteVV 
+[VV 
+]VV 
+processed_imageVV "
+=VV# $
+awaitVV% *
+_imageServiceVV+ 8
+.VV8 9
+CropVV9 =
+(VV= >
+image_bytesVV> I
+)VVI J
+;VVJ K
+responseXX 
+=XX 
+newXX 
+{YY 
+statusZZ 
+=ZZ 
+$strZZ 
+,ZZ 
+processed_image[[ 
+=[[  !
+processed_image[[" 1
+,[[1 2
+original_image\\ 
+=\\  
+image_bytes\\! ,
+,\\, -
+}]] 
+;]] 
+return^^ 
+Ok^^ 
+(^^ 
+response^^ 
+)^^ 
+;^^  
+}__ 	
+[aa 	
+HttpPostaa	 
+]aa 
+[bb 	
+Routebb	 
+(bb 
+$strbb 
+)bb 
+]bb 
+publiccc 
+asynccc 
+Taskcc 
+<cc 
+IActionResultcc '
+>cc' (
 
-SplitImageaa) 3
-(aa3 4
-	IFormFileaa4 =
-imageaa> C
-)aaC D
-{bb 	
-objectcc 
-responsecc 
-;cc 
-booldd 
-validdd 
-;dd 
-(ee 
-validee 
-,ee 
-responseee 
-)ee 
-=ee 
-Sharedee  &
-.ee& '
-CheckIfIsValidImageee' :
-(ee: ;
-imageee; @
-)ee@ A
-;eeA B
-ifff 
-(ff 
-!ff 
+SplitImagecc) 3
+(cc3 4
+	IFormFilecc4 =
+imagecc> C
+)ccC D
+{dd 	
+objectee 
+responseee 
+;ee 
+boolff 
 validff 
-)ff 
-{gg 
-returnhh 
+;ff 
+(gg 
+validgg 
+,gg 
+responsegg 
+)gg 
+=gg 
+Sharedgg  &
+.gg& '
+CheckIfIsValidImagegg' :
+(gg: ;
+imagegg; @
+)gg@ A
+;ggA B
+ifhh 
+(hh 
+!hh 
+validhh 
+)hh 
+{ii 
+returnjj 
 
-BadRequesthh !
-(hh! "
-responsehh" *
-)hh* +
-;hh+ ,
-}ii 
-bytekk 
-[kk 
-]kk 
-image_byteskk 
-=kk  
-awaitkk! &
-Sharedkk' -
-.kk- . 
-IFormFileToByteArraykk. B
-(kkB C
-imagekkC H
-)kkH I
-;kkI J
-Listll 
-<ll 
-bytell 
-[ll 
-]ll 
->ll 
-processed_imagell (
-=ll) *
-awaitll+ 0
-_imageServicell1 >
-.ll> ?
-Splitll? D
-(llD E
-image_bytesllE P
-)llP Q
-;llQ R
-responsenn 
-=nn 
-newnn 
-{oo 
-statuspp 
-=pp 
-$strpp 
-,pp 
-processed_imageqq 
-=qq  !
-processed_imageqq" 1
-.qq1 2
-ToArrayqq2 9
-(qq9 :
-)qq: ;
-}rr 
-;rr 
-returnss 
-Okss 
-(ss 
-responsess 
-)ss 
-;ss  
-}tt 	
-}vv 
-}ww ù
-lD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.cs
+BadRequestjj !
+(jj! "
+responsejj" *
+)jj* +
+;jj+ ,
+}kk 
+bytemm 
+[mm 
+]mm 
+image_bytesmm 
+=mm  
+awaitmm! &
+Sharedmm' -
+.mm- . 
+IFormFileToByteArraymm. B
+(mmB C
+imagemmC H
+)mmH I
+;mmI J
+Listnn 
+<nn 
+bytenn 
+[nn 
+]nn 
+>nn 
+processed_imagenn (
+=nn) *
+awaitnn+ 0
+_imageServicenn1 >
+.nn> ?
+Splitnn? D
+(nnD E
+image_bytesnnE P
+)nnP Q
+;nnQ R
+responsepp 
+=pp 
+newpp 
+{qq 
+statusrr 
+=rr 
+$strrr 
+,rr 
+processed_imagess 
+=ss  !
+processed_imagess" 1
+.ss1 2
+ToArrayss2 9
+(ss9 :
+)ss: ;
+,ss; <
+original_imagett 
+=tt  
+image_bytestt! ,
+,tt, -
+}uu 
+;uu 
+returnvv 
+Okvv 
+(vv 
+responsevv 
+)vv 
+;vv  
+}ww 	
+}yy 
+}zz ‡
+zA:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Program.cs
 	namespace
 
  	 
@@ -1655,8 +1670,8 @@ UseStartup )
 ) 
 ; 
 } 
-} €+
-lD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Startup.cs
+} Ž+
+zA:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Startup.cs
 	namespace 	 
 NumberRecognitionAPI
  
@@ -1962,8 +1977,8 @@ UseRoutingBB 
 ;II 
 }JJ 	
 }KK 
-}LL â
-qD:\Github\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Utils\Shared.cs
+}LL ð
+A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\NumberRecognitionAPI\Utils\Shared.cs
 	namespace 	 
 NumberRecognitionAPI
  

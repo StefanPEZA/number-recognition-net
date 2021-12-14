@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Drawing;
-//using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,20 +12,19 @@ namespace Services.ImageService
     class ImageProcessor
     {
         private readonly Image<Rgba32> image;
-        private string ImageMatrix { get; set; }
+        int[,] _imageMatrix;
 
         public ImageProcessor(byte[] source)
         {
             image = Image.Load<Rgba32>(source);
+            _imageMatrix = GetPixelMatrixFromImage();
         }
 
-        private Task<int[,]> GetPixelMatrixFromImage()
+        private int[,] GetPixelMatrixFromImage()
         {
             int[,] result = new int[image.Height, image.Width];
-            StringBuilder lines = new StringBuilder();
             for (int i = 0; i < image.Height; i++)
             {
-                lines.Append('[');
                 for (int j = 0; j < image.Width; j++)
                 {
                     
@@ -35,20 +32,14 @@ namespace Services.ImageService
                     if (pixel.R <= 45 || pixel.G <= 45 || pixel.B <= 45)
                     {
                         result[i, j] = pixel.A;
-                        lines.Append(pixel.A.ToString() + ",");
                     }
                     else
                     {
                         result[i, j] = 0;
-                        lines.Append("0, ");
                     }
-
                 }
-                lines.Append("],\n");
             }
-            ImageMatrix = lines.ToString();
-            File.WriteAllLines("temp.txt", ImageMatrix.Split("\n"));
-            return Task.FromResult(result);
+            return result;
         }
 
         private Image<Rgba32> FillToAspectRatio(int width, int height)
@@ -80,15 +71,12 @@ namespace Services.ImageService
 
             newImage.Dispose();
             
-            //result.SaveAsPng("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img.png");
             return stream.ToArray();
         }
 
 
-        public async Task<byte[]> Crop()
+        public Task<(int, int, int, int)> ComputeBounderies()
         {
-            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromImage);
-
             int minW = image.Width;
             int maxW = 0;
 
@@ -99,19 +87,29 @@ namespace Services.ImageService
             {
                 for (int j = 0; j < image.Width; j++)
                 {
-                    if (imageMatrix[i, j] == 255 && j > maxW)
-                        maxW = j;
-                    if (imageMatrix[i, j] == 255 && j < minW)
-                        minW = j;
-                    if (imageMatrix[i, j] == 255 && i > maxH)
-                        maxH = i;
-                    if (imageMatrix[i, j] == 255 && i < minH)
-                        minH = i;
+                    if (_imageMatrix[i, j] == 255)
+                    {
+                        if (j > maxW)
+                            maxW = j;
+                        if (j < minW)
+                            minW = j;
+                        if (i > maxH)
+                            maxH = i;
+                        if (i < minH)
+                            minH = i;
+                    }
                 }
             }
+            return Task.FromResult((minW, maxW, minH, maxH));
+        }
 
-            int widthBlackSpaces = maxW - minW + 1;
-            int heightBlackSpaces = maxH - minH + 1;
+        public async Task<byte[]> Crop()
+        {
+
+            (int, int, int, int) bounderies = await Task.Run(ComputeBounderies);
+
+            int widthBlackSpaces = bounderies.Item2 - bounderies.Item1 + 1;  
+            int heightBlackSpaces = bounderies.Item4 - bounderies.Item3 + 1;
 
             Image<Rgba32> result = new Image<Rgba32>(widthBlackSpaces, heightBlackSpaces);
 
@@ -121,7 +119,7 @@ namespace Services.ImageService
             {
                 for (int j = 0; j < widthBlackSpaces; j++)
                 {
-                    resultMatrix[i, j] = imageMatrix[minH + i, minW + j];
+                    resultMatrix[i, j] = _imageMatrix[bounderies.Item3 + i, bounderies.Item1 + j];
                     if (resultMatrix[i, j] == 0)
                     {
                         result[j,i] = Color.FromRgb(255, 255, 255);
@@ -133,7 +131,6 @@ namespace Services.ImageService
                 }
             }
 
-            //result.SaveAsPng("C:\\Users\\gigib\\OneDrive\\Desktop\\img.png");
 
             var stream = new MemoryStream();
             result.SaveAsPng(stream);
@@ -163,7 +160,6 @@ namespace Services.ImageService
         public async Task<List<byte[]>> Split()
         {
             List<byte[]> result = new List<byte[]>();
-            int[,] imageMatrix = await Task.Run(GetPixelMatrixFromImage);
             int lastNotBank = -1;
             List<int> splitList = new List<int>();
 
@@ -171,7 +167,7 @@ namespace Services.ImageService
             {
                 bool isLineWhite = true;
                 for (int i = 0; i < image.Height; i++)
-                    if (imageMatrix[i, j] == 255)
+                    if (_imageMatrix[i, j] == 255)
                     {
                         isLineWhite = false;
                         lastNotBank = 1;
@@ -187,9 +183,8 @@ namespace Services.ImageService
 
             foreach (int splitIndex in splitList)
             {
-                Image<Rgba32> temp = ImageCreator(splitIndex, lastSplit, imageMatrix);
+                Image<Rgba32> temp = ImageCreator(splitIndex, lastSplit, _imageMatrix);
                 lastSplit = splitIndex;
-                // temp.SaveAsPng("C:\\Users\\ghiuz\\OneDrive\\Desktop\\img" + k ".png");
                 var stream = new MemoryStream();
                 temp.SaveAsPng(stream);
                 temp.Dispose();
@@ -201,9 +196,5 @@ namespace Services.ImageService
         }
 
 
-        public override string ToString()
-        {
-            return ImageMatrix;
-        }
     }
 }

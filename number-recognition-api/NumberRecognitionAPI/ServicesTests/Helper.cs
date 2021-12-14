@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Repository;
 using Repository.Repository;
 using Services.DatasetService;
+using Services.ImageService;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,6 +22,7 @@ namespace ServicesTests
             services.AddDbContext<ApplicationDbContext>(item => item.UseSqlite("Data Source=num_recog.db"));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IDatasetService, DatasetService>();
+            services.AddTransient<IImageService, ImageService>();
 
             return services.BuildServiceProvider();
         }

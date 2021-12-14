@@ -5,25 +5,25 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "4.0.0.0",
-        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
-        "semanticVersion": "4.0.0",
+        "version": "3.11.0.0",
+        "fileVersion": "3.11.0-4.21403.6 (ae1fff34)",
+        "semanticVersion": "3.11.0",
         "language": "en-US"
       },
       "results": [
         {
-          "ruleId": "S125",
+          "ruleId": "CS1998",
           "level": "warning",
-          "message": "Remove this commented out code.",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 1,
-                  "endLine": 3,
-                  "endColumn": 24
+                  "startLine": 160,
+                  "startColumn": 41,
+                  "endLine": 160,
+                  "endColumn": 46
                 }
               }
             }
@@ -33,60 +33,18 @@
           }
         },
         {
-          "ruleId": "S125",
+          "ruleId": "S2933",
           "level": "warning",
-          "message": "Remove this commented out code.",
+          "message": "Make '_imageMatrix' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
                 "region": {
-                  "startLine": 83,
-                  "startColumn": 13,
-                  "endLine": 83,
-                  "endColumn": 80
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 136,
-                  "startColumn": 13,
-                  "endLine": 136,
-                  "endColumn": 80
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 192,
-                  "startColumn": 17,
-                  "endLine": 192,
-                  "endColumn": 90
+                  "startLine": 15,
+                  "startColumn": 16,
+                  "endLine": 15,
+                  "endColumn": 28
                 }
               }
             }
@@ -98,16 +56,16 @@
         {
           "ruleId": "S3776",
           "level": "warning",
-          "message": "Refactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.",
+          "message": "Refactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
                 "region": {
-                  "startLine": 88,
-                  "startColumn": 35,
-                  "endLine": 88,
-                  "endColumn": 39
+                  "startLine": 78,
+                  "startColumn": 43,
+                  "endLine": 78,
+                  "endColumn": 60
                 }
               }
             }
@@ -115,155 +73,78 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 13,
+                  "endLine": 86,
+                  "endColumn": 16
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 17,
+                  "endLine": 88,
+                  "endColumn": 20
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 21,
+                  "endLine": 90,
+                  "endColumn": 23
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 92,
+                  "startColumn": 25,
+                  "endLine": 92,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 25,
+                  "endLine": 94,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
+                "region": {
+                  "startLine": 96,
+                  "startColumn": 25,
+                  "endLine": 96,
+                  "endColumn": 27
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///A:/!facultate/anul3/IMR/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
                 "region": {
                   "startLine": 98,
-                  "startColumn": 13,
+                  "startColumn": 25,
                   "endLine": 98,
-                  "endColumn": 16
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 100,
-                  "startColumn": 17,
-                  "endLine": 100,
-                  "endColumn": 20
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 102,
-                  "startColumn": 21,
-                  "endLine": 102,
-                  "endColumn": 23
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 102,
-                  "startColumn": 50,
-                  "endLine": 102,
-                  "endColumn": 52
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 104,
-                  "startColumn": 21,
-                  "endLine": 104,
-                  "endColumn": 23
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 104,
-                  "startColumn": 50,
-                  "endLine": 104,
-                  "endColumn": 52
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 106,
-                  "startColumn": 21,
-                  "endLine": 106,
-                  "endColumn": 23
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 106,
-                  "startColumn": 50,
-                  "endLine": 106,
-                  "endColumn": 52
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 108,
-                  "startColumn": 21,
-                  "endLine": 108,
-                  "endColumn": 23
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 108,
-                  "startColumn": 50,
-                  "endLine": 108,
-                  "endColumn": 52
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 120,
-                  "startColumn": 13,
-                  "endLine": 120,
-                  "endColumn": 16
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 122,
-                  "startColumn": 17,
-                  "endLine": 122,
-                  "endColumn": 20
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 125,
-                  "startColumn": 21,
-                  "endLine": 125,
-                  "endColumn": 23
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Github/number-recognition-net/number-recognition-api/NumberRecognitionAPI/Services/ImageService/ImageProcessor.cs",
-                "region": {
-                  "startLine": 129,
-                  "startColumn": 21,
-                  "endLine": 129,
-                  "endColumn": 25
+                  "endColumn": 27
                 }
               }
             }
@@ -273,29 +154,36 @@
             "customProperties": {
               "0": "+1",
               "1": "+2 (incl 1 for nesting)",
-              "10": "+1",
-              "11": "+2 (incl 1 for nesting)",
-              "12": "+3 (incl 2 for nesting)",
-              "13": "+1",
               "2": "+3 (incl 2 for nesting)",
-              "3": "+1",
-              "4": "+3 (incl 2 for nesting)",
-              "5": "+1",
-              "6": "+3 (incl 2 for nesting)",
-              "7": "+1",
-              "8": "+3 (incl 2 for nesting)",
-              "9": "+1"
+              "3": "+4 (incl 3 for nesting)",
+              "4": "+4 (incl 3 for nesting)",
+              "5": "+4 (incl 3 for nesting)",
+              "6": "+4 (incl 3 for nesting)"
             }
           }
         }
       ],
       "rules": {
-        "S125": {
-          "id": "S125",
-          "shortDescription": "Sections of code should not be commented out",
-          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
+        "CS1998": {
+          "id": "CS1998",
+          "shortDescription": "Async method lacks 'await' operators and will run synchronously",
           "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS1998)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "S2933": {
+          "id": "S2933",
+          "shortDescription": "Fields that are only assigned in the constructor should be \"readonly\"",
+          "fullDescription": "readonly fields can only be assigned in a class constructor. If a class has a field that’s not marked readonly but is only set in the constructor, it could cause confusion about the field’s intended use. To avoid confusion, such fields should be marked readonly to make their intended use explicit, and to prevent future maintainers from inadvertently changing their use.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
           "properties": {
             "category": "Major Code Smell",
             "isEnabledByDefault": true,

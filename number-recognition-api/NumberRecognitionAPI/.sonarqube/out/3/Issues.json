@@ -5,9 +5,9 @@
     {
       "tool": {
         "name": "Microsoft (R) Visual C# Compiler",
-        "version": "4.0.0.0",
-        "fileVersion": "4.0.0-6.21526.21 (c7d6f9fa)",
-        "semanticVersion": "4.0.0",
+        "version": "3.11.0.0",
+        "fileVersion": "3.11.0-4.21403.6 (ae1fff34)",
+        "semanticVersion": "3.11.0",
         "language": "en-US"
       },
       "results": [
