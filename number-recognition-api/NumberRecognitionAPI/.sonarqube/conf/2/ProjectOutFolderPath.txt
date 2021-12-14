@@ -1,1 +1,0 @@
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\.sonarqube\out\2

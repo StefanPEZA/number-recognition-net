@@ -1,5 +1,0 @@
-﻿A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\DatasetService.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\DatasetService\IDatasetService.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\IImageService.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageProcessor.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Services\ImageService\ImageService.cs

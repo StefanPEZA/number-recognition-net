@@ -12,7 +12,7 @@ namespace Services.ImageService
     class ImageProcessor
     {
         private readonly Image<Rgba32> image;
-        int[,] _imageMatrix;
+        private readonly int[,] _imageMatrix;
 
         public ImageProcessor(byte[] source)
         {
@@ -183,7 +183,7 @@ namespace Services.ImageService
 
             foreach (int splitIndex in splitList)
             {
-                Image<Rgba32> temp = ImageCreator(splitIndex, lastSplit, _imageMatrix);
+                Image<Rgba32> temp = await Task<Image<Rgba32>>.Run(() => ImageCreator(splitIndex, lastSplit, _imageMatrix));
                 lastSplit = splitIndex;
                 var stream = new MemoryStream();
                 temp.SaveAsPng(stream);
@@ -192,6 +192,17 @@ namespace Services.ImageService
 
             }
 
+            return result;
+        }
+
+        public async Task<IEnumerable<float>> GetFlattenedMatrix()
+        {
+            List<float> result = new List<float>();
+            int[,] pixelMatrix = await Task.Run(GetPixelMatrixFromImage);
+            foreach (int x in pixelMatrix)
+            {
+                result.Add(x);
+            }
             return result;
         }
 

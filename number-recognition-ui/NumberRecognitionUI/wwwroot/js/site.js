@@ -157,7 +157,7 @@ window.addEventListener("load", () => {
 
 
     async function HandlePredict(response) {
-        $('#predict-button').css("display", "none");
+        //$('#predict-button').css("display", "none");
         $('#after-predict').css("display", "flex");
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);

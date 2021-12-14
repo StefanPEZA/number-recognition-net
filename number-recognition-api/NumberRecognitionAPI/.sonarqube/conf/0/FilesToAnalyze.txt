@@ -1,3 +1,0 @@
-﻿A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\EntityMapper\DatasetMap.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\BaseEntity.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Domain\Models\Dataset.cs

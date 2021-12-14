@@ -1,8 +1,0 @@
-﻿A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\ApplicationDbContext.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111500_create_dataset_table.Designer.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\20211206111821_is_test_nullable.Designer.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Migrations\ApplicationDbContextModelSnapshot.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\IRepository.cs
-A:\!facultate\anul3\IMR\number-recognition-net\number-recognition-api\NumberRecognitionAPI\Repository\Repository\Repository.cs
