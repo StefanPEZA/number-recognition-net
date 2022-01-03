@@ -1,26 +1,10 @@
-﻿/*using NumberRecognitionAPIML.Model;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace NumberRecognitionAPIML.ConsoleApp
-{
-    public class NumberRecognition
-    {
-        
-    }
-}
-*/
-using Microsoft.ML;
+﻿using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.IO.Packaging;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NumberRecognitionML
 {
@@ -86,7 +70,7 @@ namespace NumberRecognitionML
                 .AppendCacheCheckpoint(context)
 
                 // step 3: train the model with SDCA
-                .Append(context.MulticlassClassification.Trainers.SdcaMaximumEntropy(
+                .Append(context.MulticlassClassification.Trainers.LightGbm(
                     labelColumnName: "Label",
                     featureColumnName: "Features"))
 
@@ -149,13 +133,13 @@ namespace NumberRecognitionML
         {
             Digit digit = new Digit();
             digit.PixelValues = attributes.ToArray();
-            for (int i = 0; i < 784; i++)
+ /*           for (int i = 0; i < 784; i++)
             {
                 if (digit.PixelValues[i] > 1f)
                     digit.PixelValues[i] = 1f;
-            }
-            //Train(@"C:\Users\ghiuz\OneDrive\Desktop\tempFile.csv", @"C:\Users\ghiuz\OneDrive\Desktop\model", @"C:\Users\ghiuz\OneDrive\Desktop\tempFileTest.csv");
-            LoadModel(@"C:\Users\ghiuz\OneDrive\Desktop\model");
+            }*/
+            //Train(@".\..\Services\ImageService\data\tempFileTrain.csv", @".\..\Services\ImageService\data\model", @".\..\Services\ImageService\data\tempFileTest.csv");
+            LoadModel(@".\..\Services\ImageService\data\model");
             var predictionResult = PredictDigit(digit);
             return predictionResult.PredictedNumber;
         }
