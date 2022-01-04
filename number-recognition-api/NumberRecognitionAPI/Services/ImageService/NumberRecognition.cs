@@ -8,18 +8,14 @@ using System.Linq;
 
 namespace NumberRecognitionML
 {
-    /// <summary>
-    /// The Digit class represents one mnist digit.
-    /// </summary>
+
     public class Digit
     {
         public float Number { get; set; }
         [VectorType(784)] public float[] PixelValues { get; set; }
     }
 
-    /// <summary>
-    /// The DigitPrediction class represents one digit prediction.
-    /// </summary>
+
     public class DigitPrediction
     {
         [ColumnName("Score")]
@@ -56,24 +52,15 @@ namespace NumberRecognitionML
                 hasHeader: HasHeaders,
                 separatorChar: ',');
 
-            // split data into a training and test set
 
-            // build a training pipeline
-            // step 1: concatenate all feature columns
             var pipeline = context.Transforms.Concatenate("Features",
-                //DefaultColumnNames.Features,
-                nameof(Digit.PixelValues))
+                 nameof(Digit.PixelValues))
 
-                .Append(context.Transforms.Conversion.MapValueToKey(inputColumnName: "Number", outputColumnName: "Label"))
-
-                // step 2: cache data to speed up training                
+                .Append(context.Transforms.Conversion.MapValueToKey(inputColumnName: "Number", outputColumnName: "Label"))               
                 .AppendCacheCheckpoint(context)
-
-                // step 3: train the model with SDCA
                 .Append(context.MulticlassClassification.Trainers.LightGbm(
                     labelColumnName: "Label",
                     featureColumnName: "Features"))
-
                 .Append(context.Transforms.Conversion.MapKeyToValue("PredictedNumber", "PredictedLabel"));
 
             // train the model
@@ -81,18 +68,13 @@ namespace NumberRecognitionML
             var model = pipeline.Fit(dataView);
 
 
-            // use the model to make predictions on the test data
             Trace.WriteLine("Evaluating model....");
             var predictions = model.Transform(testSet);
 
-            // evaluate the predictions
             var metrics = context.MulticlassClassification.Evaluate(
                 data: predictions
-                //label: "Number",
-                //score: "Score" /*DefaultColumnNames.Score*/
                 );
 
-            // show evaluation metrics
             Trace.WriteLine($"Evaluation metrics");
             Trace.WriteLine($"    MicroAccuracy:    {metrics.MicroAccuracy:0.###}");
             Trace.WriteLine($"    MacroAccuracy:    {metrics.MacroAccuracy:0.###}");
