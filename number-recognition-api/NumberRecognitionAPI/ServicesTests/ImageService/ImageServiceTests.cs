@@ -55,5 +55,17 @@ namespace Services.ImageService.Tests
             }
             Assert.IsNotNull(await _imageService.Split(data));
         }
+
+        [TestMethod()]
+        public async Task Predict_ShouldNotReturnNullAsync()
+        {
+            FileInfo fileInfo = new FileInfo(@".\..\..\..\resources\nine_uncentered.png");
+            byte[] data = new byte[fileInfo.Length];
+            using (FileStream fs = fileInfo.OpenRead())
+            {
+                fs.Read(data, 0, data.Length);
+            }
+            Assert.IsNotNull(await _imageService.Predict(data));
+        }
     }
 }
