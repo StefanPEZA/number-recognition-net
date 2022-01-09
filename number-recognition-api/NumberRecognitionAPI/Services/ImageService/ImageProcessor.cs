@@ -89,19 +89,41 @@ namespace Services.ImageService
                 {
                     if (_imageMatrix[i, j] == 255)
                     {
-                        if (j > maxW)
-                            maxW = j;
-                        if (j < minW)
-                            minW = j;
-                        if (i > maxH)
-                            maxH = i;
-                        if (i < minH)
-                            minH = i;
+                        maxW = ComputeMaxW(i, j, maxW);
+                        minW = ComputeMinW(i, j, minW);
+                        maxH = ComputeMaxH(i, j, maxH);
+                        minH = ComputeMinH(i, j, minH);
                     }
                 }
             }
             return Task.FromResult((minW, maxW, minH, maxH));
         }
+        public int ComputeMaxW(int i, int j, int maxW)
+        {
+            if (j > maxW)
+                maxW = j;
+            return maxW;
+        }
+        public int ComputeMinW(int i, int j, int minW)
+        {
+            if (j < minW)
+                minW = j;
+            return minW;
+        }
+        public int ComputeMaxH(int i, int j, int maxH)
+        {
+            if (i > maxH)
+                maxH = i;
+            return maxH;
+        }
+        public int ComputeMinH(int i, int j, int minH)
+        {
+            if (i < minH)
+                minH = i;
+            return minH;
+        }
+
+
 
         public async Task<byte[]> Crop()
         {
