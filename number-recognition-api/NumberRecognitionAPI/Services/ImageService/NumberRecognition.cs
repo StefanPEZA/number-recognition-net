@@ -115,13 +115,13 @@ namespace NumberRecognitionML
         {
             Digit digit = new Digit();
             digit.PixelValues = attributes.ToArray();
- /*           for (int i = 0; i < 784; i++)
-            {
-                if (digit.PixelValues[i] > 1f)
-                    digit.PixelValues[i] = 1f;
-            }*/
-            //Train(@".\..\Services\ImageService\data\tempFileTrain.csv", @".\..\Services\ImageService\data\model", @".\..\Services\ImageService\data\tempFileTest.csv");
-            LoadModel(@".\..\Services\ImageService\data\model");
+
+            //train-Train(@".\..\Services\ImageService\data\tempFileTrain.csv",@".\..\Services\ImageService\data\model",@".\..\Services\ImageService\data\tempFileTest.csv");
+
+            string pathModel = @".\..\Services\ImageService\data\model";
+
+
+            LoadModel(pathModel);
             var predictionResult = PredictDigit(digit);
             return predictionResult.PredictedNumber;
         }

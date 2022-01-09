@@ -4,10 +4,9 @@ using System.Threading.Tasks;
 using Services.ImageService;
 using System.Collections.Generic;
 using NumberRecognitionAPI.Utils;
-using System;
 
 namespace NumberRecognitionAPI.Controllers.V1
-{            
+{
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/image")]
     [ApiController]
