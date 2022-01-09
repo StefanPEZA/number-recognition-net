@@ -98,25 +98,25 @@ namespace Services.ImageService
             }
             return Task.FromResult((minW, maxW, minH, maxH));
         }
-        public int ComputeMaxW(int i, int j, int maxW)
+        static public int ComputeMaxW(int i, int j, int maxW)
         {
             if (j > maxW)
                 maxW = j;
             return maxW;
         }
-        public int ComputeMinW(int i, int j, int minW)
+        static public int ComputeMinW(int i, int j, int minW)
         {
             if (j < minW)
                 minW = j;
             return minW;
         }
-        public int ComputeMaxH(int i, int j, int maxH)
+        static public int ComputeMaxH(int i, int j, int maxH)
         {
             if (i > maxH)
                 maxH = i;
             return maxH;
         }
-        public int ComputeMinH(int i, int j, int minH)
+        static public int ComputeMinH(int i, int j, int minH)
         {
             if (i < minH)
                 minH = i;
