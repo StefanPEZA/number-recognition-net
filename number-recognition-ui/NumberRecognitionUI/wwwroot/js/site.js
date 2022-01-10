@@ -17,7 +17,12 @@ window.addEventListener("load", () => {
     const predicted_canvas = document.querySelector("#predicted-canvas");
     const context_predicted = predicted_canvas.getContext("2d");
 
+    var objLabels = [];
+    
+
+
     const predict_text = document.getElementById("predict")
+    predict_text.value = "";
     predict_text.style = "font-size: 20px;"
 
     var imageLoader = document.getElementById('imageLoader');
@@ -46,7 +51,7 @@ window.addEventListener("load", () => {
     function draw(e) {
         if (!painting) return;
 
-        context.lineWidth = 35;
+        context.lineWidth = 15;
         context.lineCap = 'round';
 
         context.lineTo(e.clientX - canvas.getBoundingClientRect().left,
@@ -112,20 +117,46 @@ window.addEventListener("load", () => {
         dataForm.append("image", blobImage)
 
         $.ajax({
+            url: host + '/api/v1/image/split', // split
+            data: dataForm,
+            processData: false,
+            contentType: false,
+            type: "POST",
+
+        }).done(CropImage).fail(function (error) {
+            alert(JSON.stringify(error.responseJSON))
+            console.log(error.responseJSON);
+        });
+    });
+
+    async function CropImage(response) {
+
+
+        const processedImageArray = response.processed_image;
+        processedImageArray.forEach((image, index) =>  CropImagePost(image, index))
+    }
+
+    async function CropImagePost(image, index) {
+
+        var url = "data:image/png;base64," + image;
+        var blobImage = dataURItoBlob(url);
+
+        var dataForm = new FormData();
+        dataForm.append("image", blobImage)
+
+        $.ajax({
             url: host + '/api/v1/image/crop',
             data: dataForm,
             processData: false,
             contentType: false,
             type: "POST",
 
-        }).done(HandleResizeAfterCrop).fail(function (error) {
+        }).done(function (response) { HandleResizeAfterCrop(response, index) }).fail(function (error) {
             alert(JSON.stringify(error.responseJSON))
             console.log(error.responseJSON);
         });
-    });
-
-
-    async function HandleResizeAfterCrop(response) {
+    }
+    async function HandleResizeAfterCrop(response, index) {
 
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
@@ -149,31 +180,35 @@ window.addEventListener("load", () => {
             }
             img.src = "data:image/png;base64," + response.processed_image;
             processed_image = response.processed_image;
-            HandlePredict(response)
+            HandlePredict(response, index)
         }).fail(function (error) {
             alert("not ok");
         });
     }
 
 
-    async function HandlePredict(response) {
+    async function HandlePredict(response, index) {
         //$('#predict-button').css("display", "none");
         $('#after-predict').css("display", "flex");
         var url = "data:image/png;base64," + response.processed_image;
         var blobImageSecond = dataURItoBlob(url);
 
+        
         var dataForm = new FormData();
         dataForm.append("image", blobImageSecond);
 
-        $.ajax({
+          $.ajax({
             url: host + '/api/v1/image/predict',
             type: "POST",
             data: dataForm,
             processData: false,
             contentType: false,
 
-        }).done(function (response) {
-            predict_text.value = response.predicted_label;
+          }).done(function (response) {
+
+              objLabels[index] = response.predicted_label;
+              predict_text.value = objLabels.join("");
+    
         }).fail(function (error) {
             alert("not ok");
         });
