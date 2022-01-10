@@ -51,7 +51,7 @@ window.addEventListener("load", () => {
     function draw(e) {
         if (!painting) return;
 
-        context.lineWidth = 15;
+        context.lineWidth = 22;
         context.lineCap = 'round';
 
         context.lineTo(e.clientX - canvas.getBoundingClientRect().left,
